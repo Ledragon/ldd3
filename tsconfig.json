@@ -3,8 +3,7 @@
         "noImplicitAny": true,
         "target": "es5",
         "sourceMap": true,
-        "declaration": true,
-        "outDir": "dist"
+        "declaration": true
     },
     "exclude": [
         "node_modules"
