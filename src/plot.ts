@@ -16,20 +16,21 @@ export class chartContainer {
         let chartContainerHeight = height - chartContainerMargins.top - chartContainerMargins.bottom;
         this._chartContainerWidth = chartContainerWidth;
         this._chartContainerHeight = chartContainerHeight;
-        this._group = chartContainerGroup;
+        this._group = chartContainerGroup as d3.Selection<SVGElement, any, any, any>;
     }
-    parent() {
+
+    parent(): d3.Selection<SVGElement, any, any, any> {
         return this._parent;
     }
-    group() {
+    group(): d3.Selection<SVGElement, any, any, any> {
         return this._group;
     }
 
-    width() {
+    width(): number {
         return this._chartContainerWidth;
     }
 
-    height() {
+    height(): number {
         return this._chartContainerHeight;
     }
 }
