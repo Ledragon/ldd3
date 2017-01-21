@@ -1,15 +1,23 @@
 {
   "name": "ldd3",
   "version": "0.0.1",
-  "description": "",
+  "description": "Sets of (hopefully) easy to use charts designed with d3.",
   "main": "index.js",
   "typings": "./index.d.ts",
   "files":["dist"],
   "scripts": {
     "prepublish": "tsc"
   },
-  "keywords": [],
-  "author": "Hugues Stefanski",
+  "keywords": [
+    "d3",
+    "charts",
+    "dataviz"
+  ],
+  "author":{
+    "name": "Hugues Stefanski",
+    "url": "https://wordpress.com/hstefanski"
+  },
+  "homepage": "https://github.com/Ledragon/ldd3",
   "license": "MIT",
   "devDependencies": {
     "@types/d3": "^4.4.1",

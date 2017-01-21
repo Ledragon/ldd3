@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
 import { title } from '../title';
-import * as plot from '../plotFactory';
+import * as factory from '../plotFactory';
 import { LeftCategoricalAxis } from '../LeftCategoricalAxis';
 
 export class HorizontalBarChart<T>{
@@ -21,12 +21,13 @@ export class HorizontalBarChart<T>{
             right: 30
         };
 
-        let p = plot.plot('#chart', this._width, this._height, plotMargins);
+        let selector = '#' + containerId;
+        let p = factory.GetContainer(selector, this._width, this._height, plotMargins);
         let plotGroup = p.group();
         let plotHeight = p.height();
         let plotWidth = p.width();
 
-        this._title = new title(d3.select('#chart').select('svg'), this._width, this._height);
+        this._title = new title(d3.select(selector).select('svg'), this._width, this._height);
 
         this._yAxis = new LeftCategoricalAxis(plotGroup, plotWidth, plotHeight)
             .padding(0.5);

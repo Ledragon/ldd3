@@ -1,6 +1,6 @@
 import * as d3 from 'd3';
 import { IMargins } from './IMargins';
-export class chartContainer {
+export class ChartContainer {
     private _chartContainerWidth: number;
     private _chartContainerHeight: number;
     private _group: d3.Selection<SVGElement, any, any, any>;
