@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 
 import { title } from '../title';
-import { plot } from '../plotFactory';
+import { GetContainer } from '../plotFactory';
 import { BottomLinearAxis } from '../BottomLinearAxis';
 import { LeftLinearAxis } from '../LeftLinearAxis';
 
@@ -24,7 +24,7 @@ export class LinearLinearChart<T> {
             left: 60,
             right: 30
         };
-        var p = plot('#' + containerId, this._width, this._height, margins);
+        var p = GetContainer('#' + containerId, this._width, this._height, margins);
         let group = p.group();
         var container = group.append('g')
             .classed('chart-container', true);
