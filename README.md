@@ -1,5 +1,5 @@
 # LDD3
----------
+
 Yes, it is exactly what you think: another charting library based on [d3](https://d3js.org).
 
 This one was built using [d3](https://d3js.org) v4 and [TypeScript](htpps://www.typescriptlang.org).
