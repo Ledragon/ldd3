@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
-  "typings": "./ldd3",
+  "typings": "./index.d.ts",
   "files":["dist"],
   "scripts": {
     "prepublish": "tsc"
