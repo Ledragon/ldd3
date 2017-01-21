@@ -3,12 +3,14 @@
   "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "typings": "./src/ldd3",
+  "files":["dist"],
   "scripts": {
     "prepublish": "tsc"
   },
   "keywords": [],
   "author": "Hugues Stefanski",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@types/d3": "^4.4.1",
     "typescript": "^2.1.5"
