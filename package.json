@@ -1,10 +1,12 @@
 {
   "name": "ldd3",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sets of (hopefully) easy to use charts designed with d3.",
   "main": "index.js",
   "typings": "./index.d.ts",
-  "files":["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "prepublish": "tsc"
   },
@@ -13,7 +15,7 @@
     "charts",
     "dataviz"
   ],
-  "author":{
+  "author": {
     "name": "Hugues Stefanski",
     "url": "https://wordpress.com/hstefanski"
   },
