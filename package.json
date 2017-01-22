@@ -5,7 +5,8 @@
   "main": "index.js",
   "typings": "./index.d.ts",
   "scripts": {
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "build-doc": "./node_modules/.bin/typedoc --exclude **/node_modules/** . --out docs --ignoreCompilerErrors"
   },
   "keywords": [
     "d3",
@@ -20,6 +21,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/d3": "^4.4.1",
+    "typedoc": "https://github.com/DatenMetzgerX/typedoc/tarball/typescript-2-build",
     "typescript": "^2.1.5"
   },
   "dependencies": {
