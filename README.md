@@ -13,6 +13,26 @@ The library currently comprises two types of controls:
 
 ## Available axes
 ### BottomCategoricalAxis
+```
+/**
+ * Create a new BottomCategoricalAxis.
+ * @param container - the svg element to which the axis will be appended.
+ * @param _width - the width of the container.
+ * @param _height - the height of the container.
+ */
+constructor(container: d3.Selection<SVGElement, T, any, any>, _width: number, _height: number);
+/**
+ * Get the group in which the axis is drawn.
+ */
+group(): d3.Selection<SVGGElement, any, any, any>;
+/**
+ * Get or set the domain of the axis.
+ */
+domain(value?: any): BottomCategoricalAxis<T> | any[];
+padding(value: number): BottomCategoricalAxis<T>;
+scale(value: any): number;
+bandWidth(): number;
+```
 ### BottomLinearAxis
 ### LeftCategoricalAxis
 ### LeftLinearAxis
@@ -21,5 +41,6 @@ The library currently comprises two types of controls:
 ## Available charts
 ### LinearLinearChart
 ### HorizontalBarChart
+### CategoricalLinearChart
 
 ## Data format

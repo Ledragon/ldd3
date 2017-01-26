@@ -9,7 +9,7 @@ export class BottomCategoricalAxis<T> {
     private _group: d3.Selection<SVGGElement, any, any, any>;
 
     /**
-     * Create a new BottomCategoricalAxis.
+     * @constructor Create a new BottomCategoricalAxis.
      * @param container - the svg element to which the axis will be appended.
      * @param _width - the width of the container.
      * @param _height - the height of the container.
