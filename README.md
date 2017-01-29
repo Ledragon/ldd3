@@ -18,10 +18,15 @@ npm install --save ldd3
 
 The library is currently only delivered in a module format, meaning you have to use the `import` or `require` syntax to access the controls.
 
-## Available controls
+## Usage
 
 ### Charts
 #### LinearLinearChart
+
+Constructor: 
+
+`new LinearLinearChart(container:string, width:number, height:number)`
+
 #### HorizontalBarChart
 #### CategoricalLinearChart
 
