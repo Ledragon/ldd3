@@ -18,10 +18,11 @@
     "url": "https://wordpress.com/hstefanski"
   },
   "homepage": "https://github.com/Ledragon/ldd3",
+  "repository": "https://github.com/Ledragon/ldd3",
   "license": "MIT",
   "devDependencies": {
     "@types/d3": "^4.4.1",
-    "typedoc": "https://github.com/DatenMetzgerX/typedoc/tarball/typescript-2-build",
+    "typedoc": "^0.5.5",
     "typescript": "^2.1.5"
   },
   "dependencies": {
