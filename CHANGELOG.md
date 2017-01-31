@@ -1,3 +1,6 @@
+# 0.0.8
+* Fix yet again
+
 # 0.0.7
 * Fix again
 
