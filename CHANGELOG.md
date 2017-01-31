@@ -1,3 +1,6 @@
+# 0.0.9
+* Update d3 to v4.5.0
+
 # 0.0.8
 * Fix yet again
 
