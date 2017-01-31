@@ -1,3 +1,6 @@
+# 0.0.7
+* Fix again
+
 # 0.0.6
 * Updated readme.md
 * Fix for labels when bar is small

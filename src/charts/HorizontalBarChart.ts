@@ -90,7 +90,7 @@ export class HorizontalBarChart<T>{
         enterSelection.append('text')
             .style('text-anchor', 'end')
             .style('font-size', '10px')
-            .attr('x', d => this._xScale(this._x(d)) - this._xScale(this._x(d)) < 5 ? 0 : 5)
+            .attr('x', d => this._xScale(this._x(d)) - (this._xScale(this._x(d)) < 5 ? 0 : 5))
             .attr('y', 11)
             .text(d => this._x(d));
     }
