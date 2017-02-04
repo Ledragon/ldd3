@@ -1,6 +1,6 @@
 {
   "name": "ldd3",
-  "version": "0.0.5",
+  "version": "0.0.9",
   "description": "Sets of (hopefully) easy to use charts designed with d3.",
   "main": "index.js",
   "typings": "./index.d.ts",
@@ -26,6 +26,6 @@
     "typescript": "^2.1.5"
   },
   "dependencies": {
-    "d3": "^4.4.3"
+    "d3": "^4.5.0"
   }
 }

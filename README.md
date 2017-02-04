@@ -23,36 +23,33 @@ The library currently comprises two types of controls:
 * axes
 * charts
 
-## Available axes
-### BottomCategoricalAxis
-```
-/**
- * Create a new BottomCategoricalAxis.
- * @param container - the svg element to which the axis will be appended.
- * @param _width - the width of the container.
- * @param _height - the height of the container.
- */
-constructor(container: d3.Selection<SVGElement, T, any, any>, _width: number, _height: number);
-/**
- * Get the group in which the axis is drawn.
- */
-group(): d3.Selection<SVGGElement, any, any, any>;
-/**
- * Get or set the domain of the axis.
- */
-domain(value?: any): BottomCategoricalAxis<T> | any[];
-padding(value: number): BottomCategoricalAxis<T>;
-scale(value: any): number;
-bandWidth(): number;
-```
-### BottomLinearAxis
-### LeftCategoricalAxis
-### LeftLinearAxis
-### TopLinearAxis
+## Installing
 
-## Available charts
-### LinearLinearChart
-### HorizontalBarChart
-### CategoricalLinearChart
+To install ldd3 and get started, simply issue
+```
+npm install --save ldd3
+```
+
+The library is currently only delivered in a module format, meaning you have to use the `import` or `require` syntax to access the controls.
+
+## Usage
+
+### Charts
+#### LinearLinearChart
+
+Constructor: 
+
+`new LinearLinearChart(container:string, width:number, height:number)`
+
+#### HorizontalBarChart
+#### CategoricalLinearChart
+
+### Axes
+#### BottomCategoricalAxis
+
+#### BottomLinearAxis
+#### LeftCategoricalAxis
+#### LeftLinearAxis
+#### TopLinearAxis
 
 ## Data format
