@@ -2,6 +2,8 @@ import * as d3 from 'd3';
 
 /**
  * A class representing a bottom catageorical axis.
+ 
+ * @template T The type of data
  */
 export class BottomCategoricalAxis<T> {
     private _axis: d3.Axis<T>;
@@ -9,7 +11,7 @@ export class BottomCategoricalAxis<T> {
     private _group: d3.Selection<SVGGElement, any, any, any>;
 
     /**
-     * @constructor Create a new BottomCategoricalAxis.
+     * Create a new BottomCategoricalAxis.
      * @param container - the svg element to which the axis will be appended.
      * @param _width - the width of the container.
      * @param _height - the height of the container.
@@ -32,8 +34,13 @@ export class BottomCategoricalAxis<T> {
     }
 
     /**
-     * Get or set the domain of the axis.
+     * Gets the domain of the axis.
      */
+    domain(): any[];
+    /**
+     * Sets the domain of the axis.
+     */
+    domain(value: any): BottomCategoricalAxis<T>;
     domain(value?: any): BottomCategoricalAxis<T> | any[] {
         if (arguments.length) {
             this._scale.domain(value);

@@ -3,6 +3,10 @@ import { BottomCategoricalAxis, LeftLinearAxis } from '../Axes';
 
 import { Legend } from '../Legend';
 
+/**
+ * A categorical-linear chart.
+ * ![img](./CategoricalLinearChart.png)
+ */
 export class CategoricalLinearChart<T> {
     private _group: d3.Selection<any, any, any, any>;
     private _plotGroup: d3.Selection<any, any, any, any>;
@@ -113,21 +117,5 @@ export class CategoricalLinearChart<T> {
             .attr('d', (d: any) => this._lineGenerator(d.values))
             .style('stroke', (d, i) => d3.schemeCategory10[i]);
         this._legend.update(grouped);
-        // let legendBound = this._legend.selectAll('.legend-item')
-        //     .data(d => grouped);
-        // legendBound.exit().remove();
-        // let enterLegend = legendBound
-        //     .enter()
-        //     .append('g')
-        //     .classed('legend-item', true)
-        //     .attr('transform', (d, i) => `translate(${10},${(i + 1) * 20})`);
-        // enterLegend.append('rect')
-        //     .attr('width', 10)
-        //     .attr('height', 10)
-        //     .style('fill', (d, i) => d3.schemeCategory10[i]);
-        // enterLegend.append('text')
-        //     .attr('x', 15)
-        //     .attr('y', 9)
-        //     .text(d => d.key);
     }
 }
