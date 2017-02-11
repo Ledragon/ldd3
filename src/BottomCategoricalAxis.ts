@@ -1,10 +1,8 @@
 import * as d3 from 'd3';
 
 /**
- * A class representing a bottom catageorical axis.
- 
- * @template T The type of data
- */
+ * A class representing a bottom categorical axis.
+  */
 export class BottomCategoricalAxis<T> {
     private _axis: d3.Axis<T>;
     private _scale: d3.ScaleBand<any>;
