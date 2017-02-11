@@ -25,22 +25,4 @@ The library currently comprises two types of controls:
 
 ## Usage
 
-### Charts
-#### LinearLinearChart
-
-Constructor: 
-
-`new LinearLinearChart(container:string, width:number, height:number)`
-
-#### HorizontalBarChart
-#### CategoricalLinearChart
-
-### Axes
-#### BottomCategoricalAxis
-
-#### BottomLinearAxis
-#### LeftCategoricalAxis
-#### LeftLinearAxis
-#### TopLinearAxis
-
-## Data format
+API usage is described in the [wiki](https://github.com/Ledragon/ldd3/wiki)
