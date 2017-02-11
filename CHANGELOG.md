@@ -1,3 +1,10 @@
+#0.0.11
+* Export TimeLinearChart from charts
+
+#0.0.10
+* Added BottomTimeAxis
+* Added TimeLinearChart
+
 # 0.0.9
 * Update d3 to v4.5.0
 
