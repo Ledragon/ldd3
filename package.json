@@ -1,6 +1,6 @@
 {
   "name": "ldd3",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Sets of (hopefully) easy to use charts designed with d3.",
   "main": "index.js",
   "typings": "./index.d.ts",
