@@ -1,3 +1,6 @@
+#0.0.12
+* Added MultiCategoricalChart
+
 #0.0.11
 * Export TimeLinearChart from charts
 
