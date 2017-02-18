@@ -1,3 +1,6 @@
+#0.0.13
+* Fix color scale in MultiCategoricalChart
+
 #0.0.12
 * Added MultiCategoricalChart
 
