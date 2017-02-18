@@ -15,6 +15,8 @@ export class MultiCategoricalChart<T> {
     private _seriesGroup: d3.Selection<any, any, any, any>;
     private _legend: Legend<string>;
     private _title: title;
+    private _colorScale = d3.schemeCategory20;
+    
     constructor(selector: string, private _width: number, private _height: number) {
         let plotMargins = {
             top: 60,
@@ -37,7 +39,7 @@ export class MultiCategoricalChart<T> {
             .classed('legend-container', true)
             .attr('transform', `translate(${container.width() + plotMargins.left + plotMargins.right},${container.height() / 2})`);
         this._legend = new Legend<string>(legendContainer, container.width(), container.height())
-            .color((d, i) => d3.schemeCategory10[i])
+            .color((d, i) => this._colorScale[i])
             .label(d => d);
         this._title = new title(container.parent(), _width, _height);
     }
@@ -96,7 +98,7 @@ export class MultiCategoricalChart<T> {
             .attr('width', secondaryScale.bandwidth())
             .attr('height', (d, i) => this._plotHeight - this._yAxis.scale(this._y(d)))
             .attr('transform', (d: any, i) => `translate(${secondaryScale(this._groupBy(d))},${0})`)
-            .style('fill', (d, i) => d3.schemeCategory20[i]);
+            .style('fill', (d, i) => this._colorScale[i]);
         this._legend.update(secondaryScale.domain());
     }
 }
