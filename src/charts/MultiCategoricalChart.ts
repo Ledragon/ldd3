@@ -1,7 +1,7 @@
 import * as d3 from 'd3';
 import { LeftLinearAxis, BottomCategoricalAxis } from '../Axes';
 import { GetContainer } from '../plotFactory';
-import { Legend } from '../legend';
+import { Legend } from '../Legend';
 import { title } from '../title';
 
 export class MultiCategoricalChart<T> {

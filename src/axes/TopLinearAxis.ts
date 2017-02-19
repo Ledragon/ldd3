@@ -1,7 +1,4 @@
-import { Selection } from 'd3-selection';
-import { scaleLinear, ScaleLinear } from 'd3-scale';
-import { axisTop, Axis } from 'd3-axis';
-import { format } from 'd3-format';
+import { Selection , scaleLinear, ScaleLinear,  axisTop, Axis , format } from 'd3';
 
 export class TopLinearAxis<T> {
     private _scale: ScaleLinear<number, number>;
