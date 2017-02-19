@@ -6,8 +6,7 @@
   "typings": "./index.d.ts",
   "scripts": {
     "prepublish": "npm run clean && tsc && npm run rollup",
-    "build-doc": "./node_modules/.bin/typedoc --exclude **/node_modules/** . --out docs --ignoreCompilerErrors",
-    "build-doc2": "./node_modules/.bin/typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
+    "build-doc": "typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "npm-run-all --parallel watch serve",
     "watch": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
