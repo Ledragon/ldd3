@@ -1,13 +1,16 @@
-#0.0.13
+# 
+* Moved Axes to a sub-folder
+
+# 0.0.13
 * Fix color scale in MultiCategoricalChart
 
-#0.0.12
+# 0.0.12
 * Added MultiCategoricalChart
 
-#0.0.11
+# 0.0.11
 * Export TimeLinearChart from charts
 
-#0.0.10
+# 0.0.10
 * Added BottomTimeAxis
 * Added TimeLinearChart
 
