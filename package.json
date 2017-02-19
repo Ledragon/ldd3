@@ -10,7 +10,8 @@
     "build-doc2": "./node_modules/.bin/typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts",
-    "build": "npm run clean && tsc && rollup -c"
+    "build": "npm run clean && tsc && npm run rollup",
+    "rollup": "rollup -c"
   },
   "keywords": [
     "d3",

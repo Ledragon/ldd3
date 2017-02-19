@@ -1,8 +1,6 @@
 import { Selection } from 'd3-selection';
 import { scaleTime, ScaleTime } from 'd3-scale';
 import { axisBottom, Axis } from 'd3-axis';
-import { extent } from 'd3-array';
-// import { format } from 'd3-format';
 import { timeFormat } from 'd3-time-format';
 
 export class BottomTimeAxis<T> {

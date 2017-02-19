@@ -1,7 +1,6 @@
 import { Selection } from 'd3-selection';
 import { scaleLinear, ScaleLinear } from 'd3-scale';
 import { axisBottom, Axis } from 'd3-axis';
-import { extent } from 'd3-array';
 import { format } from 'd3-format';
 
 export class BottomLinearAxis<T> {
