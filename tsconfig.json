@@ -1,9 +1,10 @@
 {
     "compilerOptions": {
         "noImplicitAny": true,
-        "target": "es6",
+        "target": "es5",
         "sourceMap": true,
-        "declaration": true
+        "declaration": true,
+        "module": "es2015"
     },
     "exclude": [
         "node_modules",

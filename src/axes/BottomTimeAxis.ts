@@ -8,9 +8,7 @@ export class BottomTimeAxis<T> {
     constructor(container: d3.Selection<any, any, any, any>, private _width: number, private _height: number) {
         var xScale = d3.scaleTime<number>()
             .range([0, this._width]);
-        // var fmt = format('0');
-        var xAxis = d3.axisBottom(xScale)
-            // .tickFormat((d: any) => fmt(d));
+        var xAxis = d3.axisBottom(xScale);
         var xAxisGroup = container.append('g')
             .classed('horizontal axis', true)
             .attr('transform', `translate(${0},${this._height})`);
