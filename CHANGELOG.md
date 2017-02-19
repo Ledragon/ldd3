@@ -1,5 +1,7 @@
-# 
+# 0.1.0
 * Moved Axes to a sub-folder
+* Rollup global build (UMD)
+* Removed warning about modules only (obsolete)
 
 # 0.0.13
 * Fix color scale in MultiCategoricalChart

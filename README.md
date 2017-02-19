@@ -16,8 +16,6 @@ To install ldd3 and get started, simply issue
 npm install --save ldd3
 ```
 
-The library is currently only delivered in a module format, meaning you have to use the `import` or `require` syntax to access the controls.
-
 ## Library structure
 The library currently comprises two types of controls:
 * axes
