@@ -1,0 +1,12 @@
+html, body{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+.chart-title text, .title{
+    text-anchor: middle;
+    font-size: 1.2em;
+}
+
+path{
+    /*stroke:blue;*/
+    fill:none;
+}

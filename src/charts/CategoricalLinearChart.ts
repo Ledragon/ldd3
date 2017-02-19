@@ -94,6 +94,7 @@ export class CategoricalLinearChart<T> {
 
     title(value: string): CategoricalLinearChart<T> {
         this._group.select('.title')
+            .select('text')
             .text(value);
         return this;
     }

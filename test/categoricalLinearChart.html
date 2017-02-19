@@ -1,10 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="js/d3.min.js"></script>
+    <script src="js/ldd3.js"></script>
 </head>
+
 <body>
-    <script></script>
+    <div id="chart"></div>
+    <script>
+        (function () {
+            'use strict';
+            var test = new ldd3.CategoricalLinearChart('#chart', 800, 600)
+                .title('test')
+                .x(d => d.Month)
+                .y(d => parseInt(d['Regional Tourism Indicator (baseline 100)']))
+                .groupBy(d => d.Year);
+            d3.csv('data/CategoricalLinear.csv', function (error, data) {
+                console.log(data);
+                let filtered = data.filter(d => d.Region.indexOf('Total') === 0)
+                    .filter(d => d.Year === '2013' || d.Year === '2014' || d.Year === '2015');
+                let byType = d3.nest()
+                    .key(d => d['Visitor Type'])
+                    .entries(filtered);
+                let map1 = byType.map(d => {
+                    return {
+                        type: d.key,
+                        byYear: d.values
+                    }
+                });
+                console.log(map1)
+                test.update(map1[0].byYear);
+            });
+        } ());
+    </script>
 </body>
+
 </html>

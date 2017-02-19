@@ -10,7 +10,8 @@
     "build-doc2": "./node_modules/.bin/typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
-    "rollup": "rollup -c"
+    "rollup": "rollup -c",
+    "serve": "live-server test"
   },
   "keywords": [
     "d3",
@@ -26,6 +27,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/d3": "^4.4.1",
+    "live-server": "^1.2.0",
     "rimraf": "^2.6.0",
     "rollup": "^0.41.4",
     "rollup-plugin-node-resolve": "^2.0.0",
