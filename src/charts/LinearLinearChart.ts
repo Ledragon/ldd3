@@ -2,9 +2,7 @@ import * as d3 from 'd3';
 
 import { title } from '../title';
 import { GetContainer } from '../plotFactory';
-import { BottomLinearAxis } from '../BottomLinearAxis';
-import { LeftLinearAxis } from '../LeftLinearAxis';
-
+import { BottomLinearAxis, LeftLinearAxis } from '../Axes';
 
 export class LinearLinearChart<T> {
     private _xAxis: BottomLinearAxis<any>;

@@ -1,6 +1,6 @@
-export { BottomCategoricalAxis } from './BottomCategoricalAxis';
-export { BottomLinearAxis } from './BottomLinearAxis';
-export { BottomTimeAxis } from './BottomTimeAxis';
-export { LeftCategoricalAxis } from './LeftCategoricalAxis';
-export { LeftLinearAxis } from './LeftLinearAxis';
-export { TopLinearAxis } from './TopLinearAxis';
+export { BottomCategoricalAxis } from './axes/BottomCategoricalAxis';
+export { BottomLinearAxis } from './axes/BottomLinearAxis';
+export { BottomTimeAxis } from './axes/BottomTimeAxis';
+export { LeftCategoricalAxis } from './axes/LeftCategoricalAxis';
+export { LeftLinearAxis } from './axes/LeftLinearAxis';
+export { TopLinearAxis } from './axes/TopLinearAxis';
