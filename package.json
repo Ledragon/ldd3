@@ -2,7 +2,7 @@
   "name": "ldd3",
   "version": "0.0.13",
   "description": "Sets of (hopefully) easy to use charts designed with d3.",
-  "main": "index.js",
+  "main": "build/ldd3.js",
   "typings": "./index.d.ts",
   "scripts": {
     "prepublish": "npm run clean && tsc",

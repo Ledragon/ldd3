@@ -67,3 +67,5 @@ jspm_packages
 .npmignore
 .vscode
 tsconfig.json
+rollup.config.js
+test

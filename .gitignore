@@ -64,6 +64,7 @@ jspm_packages
 **/*.js
 **/*.js.map
 **/*.d.ts
+build
 dist
 docs
 docs.json
