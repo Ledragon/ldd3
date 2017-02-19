@@ -1,4 +1,5 @@
-export { BottomCategoricalAxis } from './axes/BottomCategoricalAxis';
+// import BottomCategoricalAxis ;
+export * from './axes/BottomCategoricalAxis';
 export { BottomLinearAxis } from './axes/BottomLinearAxis';
 export { BottomTimeAxis } from './axes/BottomTimeAxis';
 export { LeftCategoricalAxis } from './axes/LeftCategoricalAxis';
