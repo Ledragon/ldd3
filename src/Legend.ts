@@ -7,7 +7,6 @@ export class Legend<T> {
     private _label: (d: T, i: number) => string;
     private _color: (d: T, i: number) => string;
     constructor(container: d3.Selection<any, any, any, any>, private _width: number, private _height: number) {
-        // var legendWidth = 90;
         this._legend = container.append('g')
             .classed('legend', true)
             .attr('transform', (d, i) => `translate(${-this._legendWidth},${0})`);
