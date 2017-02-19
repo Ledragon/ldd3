@@ -1,3 +1,6 @@
+# 0.1.1
+* Compile in ES5
+
 # 0.1.0
 * Moved Axes to a sub-folder
 * Rollup global build (UMD)
