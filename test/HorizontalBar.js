@@ -6,7 +6,12 @@
         .x(d => d.values.length)
         .y(d => d.key)
         .color(d => colorScale(d.values.length));
-    d3.json('data/CategoricalLinear.json', (error, data) => {
-        test.update(data);
+    
+    let colorScale = d3.scaleLinear()
+        .range(['#CBF7ED', '#EF626C']);
+    d3.json('data/horizontalBar.json', (error, data) => {
+        colorScale.domain([0, d3.max(data, d => d.values.length)]);
+        test.update(data);        
+
     });
 }());
