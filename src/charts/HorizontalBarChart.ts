@@ -74,27 +74,30 @@ export class HorizontalBarChart<T>{
         dataBound
             .exit()
             .remove();
+        
         var enterSelection = dataBound
             .enter()
             .append('g')
-            .classed('series', true)
-            .attr('transform', (d, i) => { return "translate(" + 0 + "," + this._yAxis.scale(this._y(d)) + ")"; });
+            .classed('series', true);
+
         var rect = enterSelection.append('rect')
             .attr('x', 0)
             .attr('y', 0)
             .attr('height', this._yAxis.bandWidth())
-            .style('stroke', 'none');
+            .style('stroke', 'none')
         enterSelection.append('text')
             .style('text-anchor', 'end')
-            .style('font-size', '10px');
-
-        let updateSelection = enterSelection.merge(dataBound);
-        updateSelection.select('rect')
-            .attr('width', (d) => { return this._xScale(this._x(d)); })
-            .style('fill', (d) => { return this._color(d); })
-        updateSelection.select('text')
-            .attr('x', (d) => { return this._xScale(this._x(d)) + (this._xScale(this._x(d)) < 30 ? 25 : -5); })
+            .style('font-size', '10px')
             .attr('y', 11)
-            .text((d) => { return this._x(d); });
+
+        var merged = enterSelection.merge(dataBound);
+        merged.attr('transform', (d, i) => `translate(${0},${this._yAxis.scale(this._y(d))})`)
+        merged.select('rect')
+            .attr('width', d => this._xScale(this._x(d)))
+            .style('fill', d => this._color(d));
+        merged.select('text')
+            .attr('x', d => this._xScale(this._x(d)) + (this._xScale(this._x(d)) < 30 ? 25 : -5))
+            .text(d => this._x(d));
+
     }
 }
