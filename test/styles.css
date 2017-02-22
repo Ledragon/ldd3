@@ -10,3 +10,34 @@ path{
     /*stroke:blue;*/
     fill:none;
 }
+
+/*************************/
+.track, .track-inset{
+    stroke-linecap: round;
+}
+.track{
+    stroke:#000;
+    stroke-width:10px;
+    stroke-opacity: 0.3;
+}
+.track-inset{
+    stroke:#ddd;
+    stroke-width:8px;
+}
+.track-overlay{
+    fill: none;
+    stroke: none;
+    stroke-width: 50px;
+    cursor: pointer;
+    pointer-events: stroke;
+}
+.slider .tick{
+    font-size:.6em;
+    text-anchor: middle;
+    cursor: pointer;
+}
+.handle{
+    fill:#ddd;
+    stroke: #000;
+    stroke-opacity: 0.3;
+}

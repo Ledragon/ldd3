@@ -1,0 +1,1622 @@
+[
+    {
+        "key": "2004",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2004,
+                "price": 26.64
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2004,
+                "price": 14.79
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2004,
+                "price": 21.15
+            },
+            {
+                "country": "Denmark",
+                "year": 2004,
+                "price": 16.53
+            },
+            {
+                "country": "Germany",
+                "year": 2004,
+                "price": 7.23
+            },
+            {
+                "country": "Greece",
+                "year": 2004,
+                "price": 34.46
+            },
+            {
+                "country": "Spain",
+                "year": 2004,
+                "price": 21.57
+            },
+            {
+                "country": "France",
+                "year": 2004,
+                "price": 17.74
+            },
+            {
+                "country": "Croatia",
+                "year": 2004,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2004,
+                "price": 31.85
+            },
+            {
+                "country": "Cyprus",
+                "year": 2004,
+                "price": null
+            },
+            {
+                "country": "Latvia",
+                "year": 2004,
+                "price": 6.72
+            },
+            {
+                "country": "Lithuania",
+                "year": 2004,
+                "price": 10.27
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2004,
+                "price": 28
+            },
+            {
+                "country": "Hungary",
+                "year": 2004,
+                "price": 14.87
+            },
+            {
+                "country": "Malta",
+                "year": 2004,
+                "price": 21.97
+            },
+            {
+                "country": "Netherlands",
+                "year": 2004,
+                "price": 9.45
+            },
+            {
+                "country": "Austria",
+                "year": 2004,
+                "price": 9.9
+            },
+            {
+                "country": "Poland",
+                "year": 2004,
+                "price": 7.31
+            },
+            {
+                "country": "Portugal",
+                "year": 2004,
+                "price": 19.1
+            },
+            {
+                "country": "Romania",
+                "year": 2004,
+                "price": 22.26
+            },
+            {
+                "country": "Slovenia",
+                "year": 2004,
+                "price": 10.48
+            },
+            {
+                "country": "Slovakia",
+                "year": 2004,
+                "price": 12.22
+            },
+            {
+                "country": "Finland",
+                "year": 2004,
+                "price": 22.56
+            },
+            {
+                "country": "Sweden",
+                "year": 2004,
+                "price": 22.75
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2004,
+                "price": 17.95
+            }
+        ]
+    },
+    {
+        "key": "2005",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2005,
+                "price": 8.47
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2005,
+                "price": 11.37
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2005,
+                "price": 8.16
+            },
+            {
+                "country": "Denmark",
+                "year": 2005,
+                "price": 14.9
+            },
+            {
+                "country": "Germany",
+                "year": 2005,
+                "price": 6.57
+            },
+            {
+                "country": "Greece",
+                "year": 2005,
+                "price": 35.84
+            },
+            {
+                "country": "Spain",
+                "year": 2005,
+                "price": 16.59
+            },
+            {
+                "country": "France",
+                "year": 2005,
+                "price": 21.17
+            },
+            {
+                "country": "Croatia",
+                "year": 2005,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2005,
+                "price": 26.97
+            },
+            {
+                "country": "Cyprus",
+                "year": 2005,
+                "price": 32.46
+            },
+            {
+                "country": "Latvia",
+                "year": 2005,
+                "price": 9.05
+            },
+            {
+                "country": "Lithuania",
+                "year": 2005,
+                "price": 13.48
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2005,
+                "price": 29.09
+            },
+            {
+                "country": "Hungary",
+                "year": 2005,
+                "price": 10.31
+            },
+            {
+                "country": "Malta",
+                "year": 2005,
+                "price": 22.79
+            },
+            {
+                "country": "Netherlands",
+                "year": 2005,
+                "price": 7.15
+            },
+            {
+                "country": "Austria",
+                "year": 2005,
+                "price": 7.02
+            },
+            {
+                "country": "Poland",
+                "year": 2005,
+                "price": 9.21
+            },
+            {
+                "country": "Portugal",
+                "year": 2005,
+                "price": 14.25
+            },
+            {
+                "country": "Romania",
+                "year": 2005,
+                "price": 21.82
+            },
+            {
+                "country": "Slovenia",
+                "year": 2005,
+                "price": 9.19
+            },
+            {
+                "country": "Slovakia",
+                "year": 2005,
+                "price": 10.05
+            },
+            {
+                "country": "Finland",
+                "year": 2005,
+                "price": 18.6
+            },
+            {
+                "country": "Sweden",
+                "year": 2005,
+                "price": 14.8
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2005,
+                "price": 13.98
+            }
+        ]
+    },
+    {
+        "key": "2006",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2006,
+                "price": 15.29
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2006,
+                "price": 14.12
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2006,
+                "price": 16.15
+            },
+            {
+                "country": "Denmark",
+                "year": 2006,
+                "price": 25.47
+            },
+            {
+                "country": "Germany",
+                "year": 2006,
+                "price": 16.77
+            },
+            {
+                "country": "Greece",
+                "year": 2006,
+                "price": 48.45
+            },
+            {
+                "country": "Spain",
+                "year": 2006,
+                "price": 26.45
+            },
+            {
+                "country": "France",
+                "year": 2006,
+                "price": 33.07
+            },
+            {
+                "country": "Croatia",
+                "year": 2006,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2006,
+                "price": 32.73
+            },
+            {
+                "country": "Cyprus",
+                "year": 2006,
+                "price": 49.55
+            },
+            {
+                "country": "Latvia",
+                "year": 2006,
+                "price": 12.05
+            },
+            {
+                "country": "Lithuania",
+                "year": 2006,
+                "price": 22.45
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2006,
+                "price": 40.33
+            },
+            {
+                "country": "Hungary",
+                "year": 2006,
+                "price": 19.13
+            },
+            {
+                "country": "Malta",
+                "year": 2006,
+                "price": 25.75
+            },
+            {
+                "country": "Netherlands",
+                "year": 2006,
+                "price": 19.5
+            },
+            {
+                "country": "Austria",
+                "year": 2006,
+                "price": 17.09
+            },
+            {
+                "country": "Poland",
+                "year": 2006,
+                "price": 11.18
+            },
+            {
+                "country": "Portugal",
+                "year": 2006,
+                "price": 23.72
+            },
+            {
+                "country": "Romania",
+                "year": 2006,
+                "price": 34.6
+            },
+            {
+                "country": "Slovenia",
+                "year": 2006,
+                "price": 20.85
+            },
+            {
+                "country": "Slovakia",
+                "year": 2006,
+                "price": 17.05
+            },
+            {
+                "country": "Finland",
+                "year": 2006,
+                "price": 16.23
+            },
+            {
+                "country": "Sweden",
+                "year": 2006,
+                "price": 22.64
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2006,
+                "price": 18.35
+            }
+        ]
+    },
+    {
+        "key": "2007",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2007,
+                "price": 10.55
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2007,
+                "price": 25.46
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2007,
+                "price": 22.52
+            },
+            {
+                "country": "Denmark",
+                "year": 2007,
+                "price": 23.35
+            },
+            {
+                "country": "Germany",
+                "year": 2007,
+                "price": 18.16
+            },
+            {
+                "country": "Greece",
+                "year": 2007,
+                "price": 49.73
+            },
+            {
+                "country": "Spain",
+                "year": 2007,
+                "price": 23.96
+            },
+            {
+                "country": "France",
+                "year": 2007,
+                "price": 22.55
+            },
+            {
+                "country": "Croatia",
+                "year": 2007,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2007,
+                "price": 39.42
+            },
+            {
+                "country": "Cyprus",
+                "year": 2007,
+                "price": 37.59
+            },
+            {
+                "country": "Latvia",
+                "year": 2007,
+                "price": 12.41
+            },
+            {
+                "country": "Lithuania",
+                "year": 2007,
+                "price": 22.89
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2007,
+                "price": 37
+            },
+            {
+                "country": "Hungary",
+                "year": 2007,
+                "price": 25.72
+            },
+            {
+                "country": "Malta",
+                "year": 2007,
+                "price": 36.03
+            },
+            {
+                "country": "Netherlands",
+                "year": 2007,
+                "price": 17.85
+            },
+            {
+                "country": "Austria",
+                "year": 2007,
+                "price": 18.72
+            },
+            {
+                "country": "Poland",
+                "year": 2007,
+                "price": 10.75
+            },
+            {
+                "country": "Portugal",
+                "year": 2007,
+                "price": 24.13
+            },
+            {
+                "country": "Romania",
+                "year": 2007,
+                "price": 33.01
+            },
+            {
+                "country": "Slovenia",
+                "year": 2007,
+                "price": 18.31
+            },
+            {
+                "country": "Slovakia",
+                "year": 2007,
+                "price": 19.81
+            },
+            {
+                "country": "Finland",
+                "year": 2007,
+                "price": 21.36
+            },
+            {
+                "country": "Sweden",
+                "year": 2007,
+                "price": 28.21
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2007,
+                "price": 20.82
+            }
+        ]
+    },
+    {
+        "key": "2009",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2009,
+                "price": 6.22
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2009,
+                "price": 23.58
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2009,
+                "price": 12.49
+            },
+            {
+                "country": "Denmark",
+                "year": 2009,
+                "price": 23.1
+            },
+            {
+                "country": "Germany",
+                "year": 2009,
+                "price": 11.03
+            },
+            {
+                "country": "Greece",
+                "year": 2009,
+                "price": 48.57
+            },
+            {
+                "country": "Spain",
+                "year": 2009,
+                "price": 14.01
+            },
+            {
+                "country": "France",
+                "year": 2009,
+                "price": 20.56
+            },
+            {
+                "country": "Croatia",
+                "year": 2009,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2009,
+                "price": 34.36
+            },
+            {
+                "country": "Cyprus",
+                "year": 2009,
+                "price": 56
+            },
+            {
+                "country": "Latvia",
+                "year": 2009,
+                "price": 13.45
+            },
+            {
+                "country": "Lithuania",
+                "year": 2009,
+                "price": 13.87
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2009,
+                "price": 24.27
+            },
+            {
+                "country": "Hungary",
+                "year": 2009,
+                "price": 17.1
+            },
+            {
+                "country": "Malta",
+                "year": 2009,
+                "price": 28.94
+            },
+            {
+                "country": "Netherlands",
+                "year": 2009,
+                "price": 9.4
+            },
+            {
+                "country": "Austria",
+                "year": 2009,
+                "price": 9.86
+            },
+            {
+                "country": "Poland",
+                "year": 2009,
+                "price": 9.37
+            },
+            {
+                "country": "Portugal",
+                "year": 2009,
+                "price": 16.71
+            },
+            {
+                "country": "Romania",
+                "year": 2009,
+                "price": 28.77
+            },
+            {
+                "country": "Slovenia",
+                "year": 2009,
+                "price": 12.39
+            },
+            {
+                "country": "Slovakia",
+                "year": 2009,
+                "price": 19.73
+            },
+            {
+                "country": "Finland",
+                "year": 2009,
+                "price": 14.46
+            },
+            {
+                "country": "Sweden",
+                "year": 2009,
+                "price": 22.1
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2009,
+                "price": 13.35
+            }
+        ]
+    },
+    {
+        "key": "2008",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2008,
+                "price": 8.72
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2008,
+                "price": 22.62
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2008,
+                "price": 14.16
+            },
+            {
+                "country": "Denmark",
+                "year": 2008,
+                "price": 27.9
+            },
+            {
+                "country": "Germany",
+                "year": 2008,
+                "price": 12.08
+            },
+            {
+                "country": "Greece",
+                "year": 2008,
+                "price": 46.21
+            },
+            {
+                "country": "Spain",
+                "year": 2008,
+                "price": 22.19
+            },
+            {
+                "country": "France",
+                "year": 2008,
+                "price": 24.84
+            },
+            {
+                "country": "Croatia",
+                "year": 2008,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2008,
+                "price": 37.57
+            },
+            {
+                "country": "Cyprus",
+                "year": 2008,
+                "price": 56
+            },
+            {
+                "country": "Latvia",
+                "year": 2008,
+                "price": 14.1
+            },
+            {
+                "country": "Lithuania",
+                "year": 2008,
+                "price": 18.21
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2008,
+                "price": 36.22
+            },
+            {
+                "country": "Hungary",
+                "year": 2008,
+                "price": 15.53
+            },
+            {
+                "country": "Malta",
+                "year": 2008,
+                "price": 24.04
+            },
+            {
+                "country": "Netherlands",
+                "year": 2008,
+                "price": 8.85
+            },
+            {
+                "country": "Austria",
+                "year": 2008,
+                "price": 10.6
+            },
+            {
+                "country": "Poland",
+                "year": 2008,
+                "price": 11.13
+            },
+            {
+                "country": "Portugal",
+                "year": 2008,
+                "price": 20
+            },
+            {
+                "country": "Romania",
+                "year": 2008,
+                "price": 28.82
+            },
+            {
+                "country": "Slovenia",
+                "year": 2008,
+                "price": 18.51
+            },
+            {
+                "country": "Slovakia",
+                "year": 2008,
+                "price": 14.39
+            },
+            {
+                "country": "Finland",
+                "year": 2008,
+                "price": 22.38
+            },
+            {
+                "country": "Sweden",
+                "year": 2008,
+                "price": 30.98
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2008,
+                "price": 18.6
+            }
+        ]
+    },
+    {
+        "key": "2010",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2010,
+                "price": 12.72
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2010,
+                "price": 22.22
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2010,
+                "price": 16.76
+            },
+            {
+                "country": "Denmark",
+                "year": 2010,
+                "price": 16.11
+            },
+            {
+                "country": "Germany",
+                "year": 2010,
+                "price": 15.79
+            },
+            {
+                "country": "Greece",
+                "year": 2010,
+                "price": 48.06
+            },
+            {
+                "country": "Spain",
+                "year": 2010,
+                "price": 25.28
+            },
+            {
+                "country": "France",
+                "year": 2010,
+                "price": 25.58
+            },
+            {
+                "country": "Croatia",
+                "year": 2010,
+                "price": null
+            },
+            {
+                "country": "Italy",
+                "year": 2010,
+                "price": 38.22
+            },
+            {
+                "country": "Cyprus",
+                "year": 2010,
+                "price": 40.72
+            },
+            {
+                "country": "Latvia",
+                "year": 2010,
+                "price": 14.75
+            },
+            {
+                "country": "Lithuania",
+                "year": 2010,
+                "price": 16.88
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2010,
+                "price": 35.36
+            },
+            {
+                "country": "Hungary",
+                "year": 2010,
+                "price": 22.61
+            },
+            {
+                "country": "Malta",
+                "year": 2010,
+                "price": 27.2
+            },
+            {
+                "country": "Netherlands",
+                "year": 2010,
+                "price": 12.75
+            },
+            {
+                "country": "Austria",
+                "year": 2010,
+                "price": 17.27
+            },
+            {
+                "country": "Poland",
+                "year": 2010,
+                "price": 12.73
+            },
+            {
+                "country": "Portugal",
+                "year": 2010,
+                "price": 24.96
+            },
+            {
+                "country": "Romania",
+                "year": 2010,
+                "price": 32.29
+            },
+            {
+                "country": "Slovenia",
+                "year": 2010,
+                "price": 15.68
+            },
+            {
+                "country": "Slovakia",
+                "year": 2010,
+                "price": 27.3
+            },
+            {
+                "country": "Finland",
+                "year": 2010,
+                "price": 11.89
+            },
+            {
+                "country": "Sweden",
+                "year": 2010,
+                "price": 28.44
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2010,
+                "price": 15.7
+            }
+        ]
+    },
+    {
+        "key": "2011",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2011,
+                "price": 5.82
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2011,
+                "price": 23.14
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2011,
+                "price": 21.07
+            },
+            {
+                "country": "Denmark",
+                "year": 2011,
+                "price": 26.17
+            },
+            {
+                "country": "Germany",
+                "year": 2011,
+                "price": 19.18
+            },
+            {
+                "country": "Greece",
+                "year": 2011,
+                "price": 47.13
+            },
+            {
+                "country": "Spain",
+                "year": 2011,
+                "price": 20.38
+            },
+            {
+                "country": "France",
+                "year": 2011,
+                "price": 31.79
+            },
+            {
+                "country": "Croatia",
+                "year": 2011,
+                "price": 21.78
+            },
+            {
+                "country": "Italy",
+                "year": 2011,
+                "price": 39.52
+            },
+            {
+                "country": "Cyprus",
+                "year": 2011,
+                "price": 33.4
+            },
+            {
+                "country": "Latvia",
+                "year": 2011,
+                "price": 19.28
+            },
+            {
+                "country": "Lithuania",
+                "year": 2011,
+                "price": 23.52
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2011,
+                "price": 29.71
+            },
+            {
+                "country": "Hungary",
+                "year": 2011,
+                "price": 18.27
+            },
+            {
+                "country": "Malta",
+                "year": 2011,
+                "price": 26.61
+            },
+            {
+                "country": "Netherlands",
+                "year": 2011,
+                "price": 15.35
+            },
+            {
+                "country": "Austria",
+                "year": 2011,
+                "price": 13.65
+            },
+            {
+                "country": "Poland",
+                "year": 2011,
+                "price": 12.03
+            },
+            {
+                "country": "Portugal",
+                "year": 2011,
+                "price": 23.3
+            },
+            {
+                "country": "Romania",
+                "year": 2011,
+                "price": 39.4
+            },
+            {
+                "country": "Slovenia",
+                "year": 2011,
+                "price": 15.08
+            },
+            {
+                "country": "Slovakia",
+                "year": 2011,
+                "price": 29.08
+            },
+            {
+                "country": "Finland",
+                "year": 2011,
+                "price": 19.08
+            },
+            {
+                "country": "Sweden",
+                "year": 2011,
+                "price": 29.71
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2011,
+                "price": 16.87
+            }
+        ]
+    },
+    {
+        "key": "2012",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2012,
+                "price": 16.81
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2012,
+                "price": 19.02
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2012,
+                "price": 11.25
+            },
+            {
+                "country": "Denmark",
+                "year": 2012,
+                "price": 16.29
+            },
+            {
+                "country": "Germany",
+                "year": 2012,
+                "price": 13
+            },
+            {
+                "country": "Greece",
+                "year": 2012,
+                "price": 42.54
+            },
+            {
+                "country": "Spain",
+                "year": 2012,
+                "price": 24
+            },
+            {
+                "country": "France",
+                "year": 2012,
+                "price": 39.17
+            },
+            {
+                "country": "Croatia",
+                "year": 2012,
+                "price": 15.82
+            },
+            {
+                "country": "Italy",
+                "year": 2012,
+                "price": 36.69
+            },
+            {
+                "country": "Cyprus",
+                "year": 2012,
+                "price": 29.2
+            },
+            {
+                "country": "Latvia",
+                "year": 2012,
+                "price": 13.26
+            },
+            {
+                "country": "Lithuania",
+                "year": 2012,
+                "price": 11.39
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2012,
+                "price": 38.01
+            },
+            {
+                "country": "Hungary",
+                "year": 2012,
+                "price": 15.88
+            },
+            {
+                "country": "Malta",
+                "year": 2012,
+                "price": 32.14
+            },
+            {
+                "country": "Netherlands",
+                "year": 2012,
+                "price": 14.6
+            },
+            {
+                "country": "Austria",
+                "year": 2012,
+                "price": 16.91
+            },
+            {
+                "country": "Poland",
+                "year": 2012,
+                "price": 10.75
+            },
+            {
+                "country": "Portugal",
+                "year": 2012,
+                "price": 17.26
+            },
+            {
+                "country": "Romania",
+                "year": 2012,
+                "price": 28.03
+            },
+            {
+                "country": "Slovenia",
+                "year": 2012,
+                "price": 15.52
+            },
+            {
+                "country": "Slovakia",
+                "year": 2012,
+                "price": 21.03
+            },
+            {
+                "country": "Finland",
+                "year": 2012,
+                "price": 16.03
+            },
+            {
+                "country": "Sweden",
+                "year": 2012,
+                "price": 25.52
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2012,
+                "price": 20.29
+            }
+        ]
+    },
+    {
+        "key": "2013",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2013,
+                "price": 14.79
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2013,
+                "price": 23.91
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2013,
+                "price": 22.36
+            },
+            {
+                "country": "Denmark",
+                "year": 2013,
+                "price": 23
+            },
+            {
+                "country": "Germany",
+                "year": 2013,
+                "price": 24.66
+            },
+            {
+                "country": "Greece",
+                "year": 2013,
+                "price": 53.75
+            },
+            {
+                "country": "Spain",
+                "year": 2013,
+                "price": 33.89
+            },
+            {
+                "country": "France",
+                "year": 2013,
+                "price": 67.14
+            },
+            {
+                "country": "Croatia",
+                "year": 2013,
+                "price": 22.43
+            },
+            {
+                "country": "Italy",
+                "year": 2013,
+                "price": 47.26
+            },
+            {
+                "country": "Cyprus",
+                "year": 2013,
+                "price": 28.82
+            },
+            {
+                "country": "Latvia",
+                "year": 2013,
+                "price": 15.81
+            },
+            {
+                "country": "Lithuania",
+                "year": 2013,
+                "price": 17.24
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2013,
+                "price": 38.08
+            },
+            {
+                "country": "Hungary",
+                "year": 2013,
+                "price": 27.11
+            },
+            {
+                "country": "Malta",
+                "year": 2013,
+                "price": 36.45
+            },
+            {
+                "country": "Netherlands",
+                "year": 2013,
+                "price": 19.62
+            },
+            {
+                "country": "Austria",
+                "year": 2013,
+                "price": 25.63
+            },
+            {
+                "country": "Poland",
+                "year": 2013,
+                "price": 15.35
+            },
+            {
+                "country": "Portugal",
+                "year": 2013,
+                "price": 32.84
+            },
+            {
+                "country": "Romania",
+                "year": 2013,
+                "price": 40.05
+            },
+            {
+                "country": "Slovenia",
+                "year": 2013,
+                "price": 32.67
+            },
+            {
+                "country": "Slovakia",
+                "year": 2013,
+                "price": 26.06
+            },
+            {
+                "country": "Finland",
+                "year": 2013,
+                "price": 23.81
+            },
+            {
+                "country": "Sweden",
+                "year": 2013,
+                "price": 32.49
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2013,
+                "price": 24.96
+            }
+        ]
+    },
+    {
+        "key": "2014",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2014,
+                "price": 2.73
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2014,
+                "price": 20.37
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2014,
+                "price": 17.69
+            },
+            {
+                "country": "Denmark",
+                "year": 2014,
+                "price": 24.13
+            },
+            {
+                "country": "Germany",
+                "year": 2014,
+                "price": 15.44
+            },
+            {
+                "country": "Greece",
+                "year": 2014,
+                "price": 44.83
+            },
+            {
+                "country": "Spain",
+                "year": 2014,
+                "price": 11.23
+            },
+            {
+                "country": "France",
+                "year": 2014,
+                "price": 36.7
+            },
+            {
+                "country": "Croatia",
+                "year": 2014,
+                "price": 15.54
+            },
+            {
+                "country": "Italy",
+                "year": 2014,
+                "price": 37.06
+            },
+            {
+                "country": "Cyprus",
+                "year": 2014,
+                "price": 25.71
+            },
+            {
+                "country": "Latvia",
+                "year": 2014,
+                "price": 15.85
+            },
+            {
+                "country": "Lithuania",
+                "year": 2014,
+                "price": 15.43
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2014,
+                "price": 20.81
+            },
+            {
+                "country": "Hungary",
+                "year": 2014,
+                "price": 19.26
+            },
+            {
+                "country": "Malta",
+                "year": 2014,
+                "price": 28.25
+            },
+            {
+                "country": "Netherlands",
+                "year": 2014,
+                "price": 10.19
+            },
+            {
+                "country": "Austria",
+                "year": 2014,
+                "price": 12.25
+            },
+            {
+                "country": "Poland",
+                "year": 2014,
+                "price": 12.43
+            },
+            {
+                "country": "Portugal",
+                "year": 2014,
+                "price": 15.23
+            },
+            {
+                "country": "Romania",
+                "year": 2014,
+                "price": 34.43
+            },
+            {
+                "country": "Slovenia",
+                "year": 2014,
+                "price": 16.45
+            },
+            {
+                "country": "Slovakia",
+                "year": 2014,
+                "price": 26.77
+            },
+            {
+                "country": "Finland",
+                "year": 2014,
+                "price": 14.61
+            },
+            {
+                "country": "Sweden",
+                "year": 2014,
+                "price": 26.62
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2014,
+                "price": 17.75
+            }
+        ]
+    },
+    {
+        "key": "2015",
+        "values": [
+            {
+                "country": "Belgium",
+                "year": 2015,
+                "price": 9.96
+            },
+            {
+                "country": "Bulgaria",
+                "year": 2015,
+                "price": 19.76
+            },
+            {
+                "country": "Czech Republic",
+                "year": 2015,
+                "price": 16.57
+            },
+            {
+                "country": "Denmark",
+                "year": 2015,
+                "price": 25.58
+            },
+            {
+                "country": "Germany",
+                "year": 2015,
+                "price": 12.84
+            },
+            {
+                "country": "Greece",
+                "year": 2015,
+                "price": 47.89
+            },
+            {
+                "country": "Spain",
+                "year": 2015,
+                "price": 19.83
+            },
+            {
+                "country": "France",
+                "year": 2015,
+                "price": 43.7
+            },
+            {
+                "country": "Croatia",
+                "year": 2015,
+                "price": 14.39
+            },
+            {
+                "country": "Italy",
+                "year": 2015,
+                "price": 35.93
+            },
+            {
+                "country": "Cyprus",
+                "year": 2015,
+                "price": null
+            },
+            {
+                "country": "Latvia",
+                "year": 2015,
+                "price": 13.62
+            },
+            {
+                "country": "Lithuania",
+                "year": 2015,
+                "price": 11.52
+            },
+            {
+                "country": "Luxembourg",
+                "year": 2015,
+                "price": 31.2
+            },
+            {
+                "country": "Hungary",
+                "year": 2015,
+                "price": 21.6
+            },
+            {
+                "country": "Malta",
+                "year": 2015,
+                "price": 32.71
+            },
+            {
+                "country": "Netherlands",
+                "year": 2015,
+                "price": 11.5
+            },
+            {
+                "country": "Austria",
+                "year": 2015,
+                "price": 18.85
+            },
+            {
+                "country": "Poland",
+                "year": 2015,
+                "price": 12.22
+            },
+            {
+                "country": "Portugal",
+                "year": 2015,
+                "price": 18.57
+            },
+            {
+                "country": "Romania",
+                "year": 2015,
+                "price": 26.99
+            },
+            {
+                "country": "Slovenia",
+                "year": 2015,
+                "price": 13.11
+            },
+            {
+                "country": "Slovakia",
+                "year": 2015,
+                "price": 24.72
+            },
+            {
+                "country": "Finland",
+                "year": 2015,
+                "price": 17.74
+            },
+            {
+                "country": "Sweden",
+                "year": 2015,
+                "price": 27.22
+            },
+            {
+                "country": "United Kingdom",
+                "year": 2015,
+                "price": 19.6
+            }
+        ]
+    }
+]
