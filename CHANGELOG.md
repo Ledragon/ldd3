@@ -1,3 +1,8 @@
+# 0.1.2
+* Fix update of horizontal bar chart
+* Update test
+* Added slider
+
 # 0.1.1
 * Compile in ES5
 
