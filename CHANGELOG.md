@@ -1,3 +1,6 @@
+# 0.1.3
+* Set format for horizontal bar chart
+
 # 0.1.2
 * Fix update of horizontal bar chart
 * Update test

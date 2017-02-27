@@ -12,6 +12,7 @@ export class HorizontalBarChart<T>{
     private _title: title;
     private _seriesGroup: d3.Selection<SVGElement, T, any, any>;
     private _color: (d: T) => string;
+    private _format: (d: number) => string;
 
     constructor(containerId: string, private _width: number, private _height: number) {
         let plotMargins = {
@@ -65,6 +66,11 @@ export class HorizontalBarChart<T>{
         return this;
     }
 
+    format(value: string): HorizontalBarChart<T> {
+        this._format = d3.format(value);
+        return this;
+    }
+
     update(data: Array<T>): void {
         this._yAxis.domain(data.map(this._y));
         this._xScale.domain([0, d3.max(data, this._x)]);
@@ -74,7 +80,7 @@ export class HorizontalBarChart<T>{
         dataBound
             .exit()
             .remove();
-        
+
         var enterSelection = dataBound
             .enter()
             .append('g')
@@ -88,7 +94,7 @@ export class HorizontalBarChart<T>{
         enterSelection.append('text')
             .style('text-anchor', 'end')
             .style('font-size', '10px')
-            .attr('y', 11)
+            .attr('y', 11);
 
         var merged = enterSelection.merge(dataBound);
         merged.attr('transform', (d, i) => `translate(${0},${this._yAxis.scale(this._y(d))})`)
@@ -97,7 +103,7 @@ export class HorizontalBarChart<T>{
             .style('fill', d => this._color(d));
         merged.select('text')
             .attr('x', d => this._xScale(this._x(d)) + (this._xScale(this._x(d)) < 30 ? 25 : -5))
-            .text(d => this._x(d));
+            .text(d => this._format ? this._format(this._x(d)) : this._x(d));
 
     }
 }
