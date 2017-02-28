@@ -92,9 +92,10 @@ export class HorizontalBarChart<T>{
             .attr('height', this._yAxis.bandWidth())
             .style('stroke', 'none')
         enterSelection.append('text')
-            .style('text-anchor', 'end')
-            .style('font-size', '10px')
-            .attr('y', 11);
+        .classed('bar-label', true)    
+            // .style('text-anchor', 'end')
+            // .style('font-size', '10px')
+            .attr('y', this._yAxis.bandWidth()/2);
 
         var merged = enterSelection.merge(dataBound);
         merged.attr('transform', (d, i) => `translate(${0},${this._yAxis.scale(this._y(d))})`)

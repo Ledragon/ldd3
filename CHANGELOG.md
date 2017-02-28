@@ -1,3 +1,7 @@
+# 0.1.4
+* New css style sheet
+* Changed bar labels layout
+
 # 0.1.3
 * Set format for horizontal bar chart
 
