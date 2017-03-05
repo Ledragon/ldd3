@@ -28,5 +28,5 @@ export default {
             main: true
         })
     ],
-    moduleName: 'ldd3'
+    moduleName: 'd3'
 };
