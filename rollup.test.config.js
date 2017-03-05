@@ -6,9 +6,9 @@ export default {
     dest: 'test/js/ldd3.js',
     format: 'umd',
     // sourceMap: 'inline',
-    // globals: {
-    //     d3: 'd3'
-    // },
+    globals: {
+        d3: 'd3'
+    },
     // external: ['d3'],
     plugins: [
         // typescript({
