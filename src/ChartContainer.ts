@@ -9,7 +9,6 @@ export class ChartContainer {
         this._parent = container;
         let chartContainerMargins = margins;
         let chartContainerGroup = container.append('g')
-            // .classed('chartContainer', true)
             .attr('transform', `translate(${chartContainerMargins.left},${chartContainerMargins.top})`);
 
         let chartContainerWidth = width - chartContainerMargins.left - chartContainerMargins.right;

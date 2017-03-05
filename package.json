@@ -8,9 +8,11 @@
     "prepublish": "npm run clean && tsc && npm run rollup",
     "build-doc": "typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "npm-run-all --parallel watch serve",
-    "watch": "tsc -w",
+    "watch": "npm-run-all --parallel tsc:watch rollup:watch",
+    "tsc:watch": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
     "rollup": "rollup -c",
+    "rollup:watch": "rollup -c -w",
     "serve": "live-server test"
   },
   "keywords": [
@@ -32,6 +34,7 @@
     "rimraf": "^2.6.0",
     "rollup": "^0.41.4",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^3.2.2",
     "typedoc": "^0.5.5",
     "typedoc-markdown-theme": "0.0.4",
     "typescript": "^2.1.5"

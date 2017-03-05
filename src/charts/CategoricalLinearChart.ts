@@ -20,10 +20,12 @@ export class CategoricalLinearChart<T> {
 
     private _legend: Legend<any>;
 
-    constructor(selector: string, private _width: number, private _height: number) {
+    constructor(selector: string, width: number, height: number);
+    constructor(selector: d3.BaseType, width: number, height: number);
+    constructor(selector: string | d3.BaseType, private _width: number, private _height: number) {
         var width = _width;
         var height = _height;
-        let svg = d3.select(selector)
+        let svg = d3.select(selector as any) //casting to any is required to be able to call select without error
             .append('svg')
             .attr('width', width)
             .attr('height', height);
@@ -43,9 +45,9 @@ export class CategoricalLinearChart<T> {
             .style('stroke', 'darkGray');
         svg.append('g')
             .classed('title', true)
-            .attr('transform', (d, i) => `translate(${width / 2},${30})`)
+            .attr('transform', `translate(${width / 2},${30})`)
             .append('text');
-
+        
         //TODO avoid nasty casting        
         let plotGroup: d3.Selection<SVGGElement, T, any, any> = svg.append('g')
             .classed('plot', true)
@@ -57,7 +59,7 @@ export class CategoricalLinearChart<T> {
         this._plotGroup = plotGroup;
         this._xAxis = new BottomCategoricalAxis(plotGroup, plotWidth, plotHeight);
         this._yAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
-        this._lineGenerator = d3.line<any>()
+        this._lineGenerator = d3.line<T>()
             .curve(d3.curveStep)
             .x((d, i) => this._xAxis.scale(this._x(d, i)) + this._xAxis.bandWidth() / 2)
             .y((d, i) => this._yAxis.scale(this._y(d, i)));
