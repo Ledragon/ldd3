@@ -1,6 +1,6 @@
-import * as d3 from '../d3';
-import { BottomCategoricalAxis, LeftLinearAxis } from '../Axes';
+import * as d3 from '../d3-bundle';
 
+import { BottomCategoricalAxis, LeftLinearAxis } from '../Axes';
 import { Legend } from '../Legend';
 
 /**

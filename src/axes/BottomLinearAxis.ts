@@ -1,4 +1,4 @@
-import * as d3 from '../d3';
+import * as d3 from '../d3-bundle';
 
 export class BottomLinearAxis<T> {
     private _scale: d3.ScaleLinear<number, number>;

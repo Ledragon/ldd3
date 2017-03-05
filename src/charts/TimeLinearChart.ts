@@ -1,10 +1,10 @@
-import { select, Selection, format, line, Line, max, extent } from '../d3';
+import * as d3 from '../d3-bundle';
 import { BottomTimeAxis } from '../Axes';
 import { LeftLinearAxis } from '../Axes';
 
 export class TimeLinearChart<T>{
-    private _group: Selection<any, any, any, any>;
-    private _lineGenerator: Line<any>;
+    private _group: d3.Selection<any, any, any, any>;
+    private _lineGenerator: d3.Line<any>;
     private _x: (d: T, i: number) => Date;
     private _y: (d: T, i: number) => number;
     private _timeAxis: BottomTimeAxis<T>;
@@ -12,7 +12,7 @@ export class TimeLinearChart<T>{
     private _path: any;
 
     constructor(selector: string, width: number, height: number) {
-        let svg = select(selector)
+        let svg = d3.select(selector)
             .append('svg')
             .attr('width', width)
             .attr('height', height);
@@ -37,9 +37,9 @@ export class TimeLinearChart<T>{
         let plotWidth = width - plotMargins.left - plotMargins.right;
         let plotHeight = height - plotMargins.top - plotMargins.bottom;
 
-        this._timeAxis = new BottomTimeAxis<any>(plotGroup, plotWidth, plotHeight)
-        this._leftAxis = new LeftLinearAxis<any>(plotGroup, plotWidth, plotHeight);
-        this._lineGenerator = line<any>();
+        this._timeAxis = new BottomTimeAxis<T>(plotGroup, plotWidth, plotHeight)
+        this._leftAxis = new LeftLinearAxis<T>(plotGroup, plotWidth, plotHeight);
+        this._lineGenerator = d3.line<T>();
 
         var group = plotGroup.append('g');
         this._path = group.append('path')
@@ -86,8 +86,8 @@ export class TimeLinearChart<T>{
     }
 
     update(data: Array<T>): void {
-        this._timeAxis.domain(extent(data, (d, i) => this._x(d, i)) as [Date, Date]);
-        this._leftAxis.domain([0, max(data, (d, i) => this._y(d, i))]);
+        this._timeAxis.domain(d3.extent(data, (d, i) => this._x(d, i)) as [Date, Date]);
+        this._leftAxis.domain([0, d3.max(data, (d, i) => this._y(d, i))]);
         this._path.attr('d', this._lineGenerator(data));
     }
 }

@@ -9,7 +9,7 @@
     "build-doc": "typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "npm-run-all --parallel watch serve",
     "watch": "npm-run-all --parallel tsc:watch rollup:watch",
-    "tsc": "tsc",
+    "tsc": "npm run clean && tsc",
     "tsc:watch": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
     "rollup": "rollup -c",

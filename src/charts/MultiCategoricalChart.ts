@@ -1,4 +1,5 @@
-import * as d3 from '../d3';
+import * as d3 from '../d3-bundle';
+
 import { LeftLinearAxis, BottomCategoricalAxis } from '../Axes';
 import { GetContainer } from '../plotFactory';
 import { Legend } from '../Legend';

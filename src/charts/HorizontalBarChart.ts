@@ -1,4 +1,4 @@
-import * as d3 from '../d3';
+import * as d3 from '../d3-bundle';
 
 import { title } from '../title';
 import * as factory from '../plotFactory';

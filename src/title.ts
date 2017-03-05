@@ -1,8 +1,8 @@
-import { Selection } from 'd3-selection';
+import * as d3 from './d3-bundle';
 
 export class title {
-    private _group: Selection<any, any, any, any>;
-    constructor(container: Selection<any, any, any, any>, width: number, height: number) {
+    private _group: d3.Selection<any, any, any, any>;
+    constructor(container: d3.Selection<any, any, any, any>, width: number, height: number) {
         this._group = container.append('g')
             .classed('chart-title', true)
             .attr('transform', `translate(${width / 2},${30})`);

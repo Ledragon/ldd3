@@ -1,8 +1,10 @@
-import {select} from './d3';
+import * as d3 from './d3-bundle';
+
 import { IMargins } from './IMargins';
 import { ChartContainer } from './ChartContainer';
+
 export function GetContainer(selector: string, width: number, height: number, margins: IMargins) {
-    let svg = select(selector)
+    let svg = d3.select(selector)
         .append('svg')
         .attr('width', width)
         .attr('height', height);

@@ -1,5 +1,6 @@
-import * as d3 from './d3';
+import * as d3 from './d3-bundle';
 import { IMargins } from './IMargins';
+
 export class ChartContainer {
     private _chartContainerWidth: number;
     private _chartContainerHeight: number;

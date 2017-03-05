@@ -1,5 +1,4 @@
-import * as d3 from '../d3';
-// import { scaleBand } from 'd3-scale';
+import * as d3 from '../d3-bundle';
 
 /**
  * A class representing a bottom categorical axis.

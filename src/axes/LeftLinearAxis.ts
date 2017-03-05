@@ -1,4 +1,4 @@
-import * as d3 from '../d3';
+import * as d3 from '../d3-bundle';
 
 export class LeftLinearAxis<T> {
     private _axis: d3.Axis<number>;

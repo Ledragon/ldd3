@@ -61,9 +61,11 @@ jspm_packages
 
 # End of https://www.gitignore.io/api/node,visualstudiocode
 ########################################
-**/*.js
-**/*.js.map
-**/*.d.ts
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+index.js
+index.js.map
 !test/*.js
 build
 dist
