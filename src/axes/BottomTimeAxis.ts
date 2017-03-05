@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import * as d3 from '../d3';
 
 export class BottomTimeAxis<T> {
     private _scale: d3.ScaleTime<number, number>;

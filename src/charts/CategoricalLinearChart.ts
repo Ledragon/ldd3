@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import * as d3 from '../d3';
 import { BottomCategoricalAxis, LeftLinearAxis } from '../Axes';
 
 import { Legend } from '../Legend';
@@ -30,7 +30,6 @@ export class CategoricalLinearChart<T> {
             .attr('width', width)
             .attr('height', height);
         this._group = svg;
-
         let plotMargins = {
             top: 60,
             bottom: 30,

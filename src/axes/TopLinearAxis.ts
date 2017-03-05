@@ -1,4 +1,4 @@
-import { Selection , scaleLinear, ScaleLinear,  axisTop, Axis , format } from 'd3';
+import { Selection , scaleLinear, ScaleLinear,  axisTop, Axis , format } from '../d3';
 
 export class TopLinearAxis<T> {
     private _scale: ScaleLinear<number, number>;

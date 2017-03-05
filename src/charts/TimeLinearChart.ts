@@ -1,4 +1,4 @@
-import { select, Selection, format, line, Line, max, extent } from 'd3';
+import { select, Selection, format, line, Line, max, extent } from '../d3';
 import { BottomTimeAxis } from '../Axes';
 import { LeftLinearAxis } from '../Axes';
 

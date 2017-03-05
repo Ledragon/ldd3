@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import * as d3 from '../d3';
 
 export class LeftCategoricalAxis<T> {
     private _axis: d3.Axis<string>;

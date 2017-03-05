@@ -1,4 +1,5 @@
-import * as d3 from 'd3';
+// import * as d3 from 'd3';
+import * as d3 from './d3';
 
 export class Slider {
     private _xScale: d3.ScaleLinear<number, number>;
