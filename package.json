@@ -13,8 +13,7 @@
     "tsc:watch": "tsc -w",
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
     "rollup": "rollup -c",
-    "rollup:watch": "rollup -c rollup.test.config.js -w",
-    "serve": "live-server test"
+    "serve": "rollup -c rollup.d3.js && live-server test"
   },
   "keywords": [
     "d3",
