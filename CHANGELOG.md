@@ -1,3 +1,8 @@
+# 0.1.5
+* New constructor for CategoricalLinearChart
+* Css distributed
+* Minified version available
+
 # 0.1.4
 * New css style sheet
 * Changed bar labels layout
