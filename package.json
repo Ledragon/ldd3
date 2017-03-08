@@ -5,7 +5,7 @@
   "main": "build/ldd3.js",
   "typings": "./index.d.ts",
   "scripts": {
-    "prepublish": "npm run clean && tsc && npm run rollup",
+    "prepublish": "npm run clean && tsc && npm run rollup && npm run uglify",
     "build-doc": "typedoc --mode modules --module commonjs --target es6 --json docs.json --excludePrivate",
     "start": "npm-run-all --parallel watch serve",
     "watch": "npm-run-all --parallel tsc:watch rollup:watch",
@@ -36,6 +36,7 @@
     "rimraf": "^2.6.0",
     "rollup": "^0.41.4",
     "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-plugin-scss": "^0.2.0",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-watch": "^3.2.2",
     "typedoc": "^0.5.5",

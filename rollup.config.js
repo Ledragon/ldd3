@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve';
+import scss from 'rollup-plugin-scss';
 
 const d3Array = [
     'd3-array',
@@ -22,6 +23,7 @@ export default {
     globals: globals,
     external: d3Array,
     plugins: [
+        scss(),
         resolve({
             jsnext: true,
             browser: true,
