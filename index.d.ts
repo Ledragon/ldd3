@@ -1,4 +1,3 @@
-import './src/styles/ldd3.css';
 export * from './src/Axes';
 export * from './src/Charts';
 export { ChartContainer } from './src/ChartContainer';
