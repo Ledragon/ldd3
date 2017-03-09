@@ -1,3 +1,6 @@
+# 0.1.8
+* Css removed (seemed to make problem)
+
 # 0.1.5
 * New constructor for CategoricalLinearChart
 * Css distributed
