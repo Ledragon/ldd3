@@ -23,4 +23,8 @@ The library currently comprises two types of controls:
 
 ## Usage
 
-API usage is described in the [wiki](https://github.com/Ledragon/ldd3/wiki)
+I will try to motivate myself to publish some bl.ocks demonstrating how to use these charts.
+
+API usage is described in the [wiki](https://github.com/Ledragon/ldd3/wiki).
+
+

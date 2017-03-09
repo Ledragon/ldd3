@@ -3,6 +3,8 @@
   "version": "0.1.5",
   "description": "Sets of (hopefully) easy to use charts designed with d3.",
   "main": "build/ldd3.js",
+  "module": "index",
+  "jsnext:main": "index",
   "typings": "./index.d.ts",
   "scripts": {
     "prepublish": "npm run clean && tsc && npm run rollup && npm run uglify",
