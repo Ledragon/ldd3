@@ -69,3 +69,5 @@ jspm_packages
 tsconfig.json
 rollup.config.js
 test
+docs
+docs.json
