@@ -1,3 +1,9 @@
+# 
+* LinearLinear improvements:
+  * hasLine
+  * hasPoints
+  * pointsColor
+
 # 0.1.8
 * Css removed (seemed to make problem)
 
