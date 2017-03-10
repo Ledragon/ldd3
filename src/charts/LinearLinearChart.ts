@@ -7,9 +7,12 @@ import { BottomLinearAxis, LeftLinearAxis } from '../Axes';
 export class LinearLinearChart<T> {
     private _xAxis: BottomLinearAxis<any>;
     private _yAxis: LeftLinearAxis<any>;
-
+    private _hasLine: boolean = true;
+    private _hasPoints: boolean = false;
+    private _pointColor: (d: T, i: number) => string = () => 'lightgray';
     private _pathGenerator: d3.Line<any>;
     private _pathGroup: d3.Selection<any, any, any, any>;
+    private _pointsGroup: d3.Selection<any, any, any, any>;
 
     private _x: (d: T) => number;
     private _y: (d: T) => number;
@@ -32,10 +35,27 @@ export class LinearLinearChart<T> {
         this._yAxis = new LeftLinearAxis<T>(<any>container, plotWidth, plotHeight)
             .format('s');
         this.initPathGenerator(container);
+        this._pointsGroup = container.append('g')
+            .classed('points', true);
         this._title = new title(p.parent(), this._width, this._height);
 
         this._x = (d: any) => d.x;
         this._y = (d: any) => d.y;
+    }
+
+    hasLine(value: boolean): LinearLinearChart<T> {
+        this._hasLine = value;
+        return this;
+    }
+
+    hasPoints(value: boolean): LinearLinearChart<T> {
+        this._hasPoints = value;
+        return this;
+    }
+
+    pointColor(value: (d: T, i: number) => string): LinearLinearChart<T> {
+        this._pointColor = value;
+        return this;
     }
 
     x(value: (d: T) => number): LinearLinearChart<T> {
@@ -65,7 +85,26 @@ export class LinearLinearChart<T> {
         this._xAxis.domain(xDomain);
         this._yAxis.domain(yDomain);
         this._pathGroup
-            .attr('d', this._pathGenerator(data));
+            .attr('d', this._pathGenerator(data))
+            .style('visibility', this._hasLine ? 'visible' : 'hidden');
+
+        var dataBound = this._pointsGroup.selectAll('.point')
+            .data(data);
+        dataBound
+            .exit()
+            .remove();
+        var enterSelection = dataBound
+            .enter()
+            .append('g')
+            .classed('point', true);
+        enterSelection.append('circle')
+            .attr('r', 2);
+        var merged = enterSelection.merge(dataBound);
+        merged.style('visibility', this._hasPoints ? 'visible' : 'hidden');
+        merged.select('circle')
+            .attr('cx', d => this._xAxis.scale(this._x(d)))
+            .attr('cy', d => this._yAxis.scale(this._y(d)))
+            .style('fill', (d, i) => this._pointColor(d, i));
     }
 
     private initPathGenerator(container: d3.Selection<any, any, any, any>) {
@@ -74,7 +113,8 @@ export class LinearLinearChart<T> {
             .y(d => this._yAxis.scale(this._y(d)))
         this._pathGroup = container.append('g')
             .append('path')
-            .classed('trace', true);
+            .classed('trace', true)
+            .style('fill', 'none');
     }
 
 }
