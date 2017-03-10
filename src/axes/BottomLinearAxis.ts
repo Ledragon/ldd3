@@ -25,6 +25,11 @@ export class BottomLinearAxis<T> {
         this._group.call(this._axis);
         return this;
     }
+    
+    format(value: string): BottomLinearAxis<T> {
+        this._axis.tickFormat(d3.format(value));
+        return this;
+    }
 
     scale(value: number): number {
         return this._scale(value);

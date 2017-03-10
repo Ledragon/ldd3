@@ -63,8 +63,18 @@ export class LinearLinearChart<T> {
         return this;
     }
 
+    xFormat(value: string): LinearLinearChart<T> {
+        this._xAxis.format(value);
+        return this;
+    }
+
     y(value: (d: T) => number): LinearLinearChart<T> {
         this._y = value;
+        return this;
+    }
+
+    yFormat(value: string): LinearLinearChart<T> {
+        this._yAxis.format(value);
         return this;
     }
 

@@ -3,6 +3,8 @@
   * hasLine
   * hasPoints
   * pointsColor
+  * xFormat
+  * yFormat
 
 # 0.1.8
 * Css removed (seemed to make problem)
