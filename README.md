@@ -22,6 +22,8 @@ The library currently comprises two types of controls:
 ### Axes
 
 ### Charts
+#### CategoricalLinearChart
+![CategoricalLinearChart](images/CategoricalLinearChart.png)
 #### MultiCategoricalChart
 ![MultiCategoricalChart](images/MultiCategoricalChart.png)
 
