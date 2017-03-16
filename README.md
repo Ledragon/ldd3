@@ -18,8 +18,12 @@ npm install --save ldd3
 
 ## Library structure
 The library currently comprises two types of controls:
-* axes
-* charts
+
+### Axes
+
+### Charts
+#### MultiCategoricalChart
+![MultiCategoricalChart](images/MultiCategoricalChart.png)
 
 ## Usage
 
