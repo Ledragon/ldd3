@@ -16,8 +16,8 @@ export class MultiCategoricalChart<T> {
     private _seriesGroup: d3.Selection<any, any, any, any>;
     private _legend: Legend<string>;
     private _title: title;
-    private _colorScale = d3.schemeCategory20;
-    
+    private _colorScale = (i: number) => d3.schemeCategory20[i];
+
     constructor(selector: string, private _width: number, private _height: number) {
         let plotMargins = {
             top: 60,
@@ -40,15 +40,22 @@ export class MultiCategoricalChart<T> {
             .classed('legend-container', true)
             .attr('transform', `translate(${container.width() + plotMargins.left + plotMargins.right},${container.height() / 2})`);
         this._legend = new Legend<string>(legendContainer, container.width(), container.height())
-            .color((d, i) => this._colorScale[i])
+            .color((d, i) => this._colorScale(i))
             .label(d => d);
         this._title = new title(container.parent(), _width, _height);
+    }
+    color(value: (i: number) => string): MultiCategoricalChart<T> {
+        if (value) {
+            this._colorScale = value;
+        }
+        return this;
     }
 
     title(value: string): MultiCategoricalChart<T> {
         this._title.text(value);
         return this;
     }
+
     x(value: (d: T) => string): MultiCategoricalChart<T> {
         if (arguments.length) {
             this._x = value;
@@ -63,6 +70,13 @@ export class MultiCategoricalChart<T> {
         return this;
     }
 
+    yFormat(value: string): MultiCategoricalChart<T> {
+        if (arguments.length) {
+            this._yAxis.format(value);
+        }
+        return this;
+    }
+
     groupBy(value: (d: T) => string): MultiCategoricalChart<T> {
         if (arguments.length) {
             this._groupBy = value;
@@ -70,9 +84,14 @@ export class MultiCategoricalChart<T> {
         return this;
     }
 
-    update(data: Array<T>): void {
+    update(data: Array<T>): void;
+    update(data: Array<T>, yDomain: [number, number]): void;
+    update(data: Array<T>, yDomain?: [number, number]): void {
         this._xAxis.domain(data.map(this._x));
-        this._yAxis.domain(d3.extent(data, this._y));
+        if (!yDomain) {
+            yDomain = d3.extent(data, this._y);
+        }
+        this._yAxis.domain(yDomain);
         let bandWidth = this._xAxis.bandWidth();
         var secondaryScale = d3.scaleBand<any>()
             .domain(data.map(this._groupBy))
@@ -99,7 +118,7 @@ export class MultiCategoricalChart<T> {
             .attr('width', secondaryScale.bandwidth())
             .attr('height', (d, i) => this._plotHeight - this._yAxis.scale(this._y(d)))
             .attr('transform', (d: any, i) => `translate(${secondaryScale(this._groupBy(d))},${0})`)
-            .style('fill', (d, i) => this._colorScale[i]);
+            .style('fill', (d, i) => this._colorScale(i));
         this._legend.update(secondaryScale.domain());
     }
 }

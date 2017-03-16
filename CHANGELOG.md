@@ -1,10 +1,14 @@
-# 
+# 0.2.0
 * LinearLinear improvements:
   * hasLine
   * hasPoints
   * pointsColor
   * xFormat
   * yFormat
+* MultiCategoricalChart improvements:
+  * yFormat
+  * colorScale
+  * possibility to provide yDomain
 
 # 0.1.8
 * Css removed (seemed to make problem)
