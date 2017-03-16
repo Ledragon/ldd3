@@ -44,6 +44,7 @@ export class MultiCategoricalChart<T> {
             .label(d => d);
         this._title = new title(container.parent(), _width, _height);
     }
+    
     color(value: (i: number) => string): MultiCategoricalChart<T> {
         if (value) {
             this._colorScale = value;

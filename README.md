@@ -22,17 +22,22 @@ The library currently comprises two types of controls:
 ### Axes
 
 ### Charts
+
+All the examples below are extracted from my taking part to the [Makeover Monday](http://www.makeovermonday.co.uk/) challenge. Code used to generate these charts is available in [this repository](https://github.com/Ledragon/MakeOverMonday2017).
+
 #### CategoricalLinearChart
 ![CategoricalLinearChart](images/CategoricalLinearChart.png)
 #### HorizontalBarChart
 ![HorizontalBarChart](images/HorizontalBarChart.png)
+#### LinearLinearChart
+![LinearLinearChart](images/LinearLinearChart.png)
 #### MultiCategoricalChart
 ![MultiCategoricalChart](images/MultiCategoricalChart.png)
+#### TimeLinearChart
+![TimeLinearChart](images/TimeLinearChart.png)
 
 ## Usage
 
-I will try to motivate myself to publish some bl.ocks demonstrating how to use these charts.
+I will try to motivate myself to publish some bl.ocks demonstrating how to use these charts. Check [this repository](https://github.com/Ledragon/MakeOverMonday2017) for examples in the meanwhile.
 
 API usage is described in the [wiki](https://github.com/Ledragon/ldd3/wiki).
-
-
