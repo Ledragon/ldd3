@@ -24,6 +24,8 @@ The library currently comprises two types of controls:
 ### Charts
 #### CategoricalLinearChart
 ![CategoricalLinearChart](images/CategoricalLinearChart.png)
+#### HorizontalBarChart
+![HorizontalBarChart](images/HorizontalBarChart.png)
 #### MultiCategoricalChart
 ![MultiCategoricalChart](images/MultiCategoricalChart.png)
 
