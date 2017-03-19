@@ -26,6 +26,8 @@ The library currently comprises two types of controls:
 All the examples below are extracted from my taking part to the [Makeover Monday](http://www.makeovermonday.co.uk/) challenge. Code used to generate these charts is available in [this repository](https://github.com/Ledragon/MakeOverMonday2017).
 
 #### CategoricalLinearChart
+A chart with categories on the x-axis and a linear y-axis.
+
 ![CategoricalLinearChart](images/CategoricalLinearChart.png)
 #### HorizontalBarChart
 ![HorizontalBarChart](images/HorizontalBarChart.png)
