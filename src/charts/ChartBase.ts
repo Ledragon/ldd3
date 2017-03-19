@@ -9,8 +9,8 @@ export class ChartBase<TDatum, Tx, Ty>{
     private _group: d3.Selection<any, any, any, any>;
     private _plotWidth: number;
     private _plotHeight: number;
-    private _x: (d: TDatum, i: number) => Tx;
-    private _y: (d: TDatum, i: number) => Ty;
+    private _x: (d: TDatum, i?: number) => Tx;
+    private _y: (d: TDatum, i?: number) => Ty;
     private _container: ChartContainer;
     private _title: title;
 
@@ -40,9 +40,9 @@ export class ChartBase<TDatum, Tx, Ty>{
         return this._container.parent();
     }
 
-    x(): (d: TDatum, i: number) => Tx;
-    x(value: (d: TDatum, i: number) => Tx): this;
-    x(value?: (d: TDatum, i: number) => Tx): any {
+    x(): (d: TDatum, i?: number) => Tx;
+    x(value: (d: TDatum, i?: number) => Tx): this;
+    x(value?: (d: TDatum, i?: number) => Tx): any {
         if (arguments.length) {
             this._x = value;
             return this;
@@ -51,9 +51,9 @@ export class ChartBase<TDatum, Tx, Ty>{
         }
     }
 
-    y(): (d: TDatum, i: number) => Ty;
-    y(value: (d: TDatum, i: number) => Ty): this;
-    y(value?: (d: TDatum, i: number) => Ty): any {
+    y(): (d: TDatum, i?: number) => Ty;
+    y(value: (d: TDatum, i?: number) => Ty): this;
+    y(value?: (d: TDatum, i?: number) => Ty): any {
         if (arguments.length) {
             this._y = value;
             return this;
@@ -62,7 +62,6 @@ export class ChartBase<TDatum, Tx, Ty>{
             return this._y;
         }
     }
-
 
     title(value: string): this {
         this._title.text(value);

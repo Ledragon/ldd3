@@ -421,34 +421,59 @@ var HorizontalBarChart = (function (_super) {
 
 //# sourceMappingURL=HorizontalBarChart.js.map
 
-var LinearLinearChart = (function () {
-    function LinearLinearChart(containerId, _width, _height) {
-        this._width = _width;
-        this._height = _height;
-        this._hasLine = true;
-        this._hasPoints = false;
-        this._pointColor = function () { return 'lightgray'; };
-        var margins = {
+var __extends$1 = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+// import { title } from '../title';
+// import { GetContainer } from '../plotFactory';
+var LinearLinearChart = (function (_super) {
+    __extends$1(LinearLinearChart, _super);
+    function LinearLinearChart(selector, width, height) {
+        var _this = _super.call(this, selector, width, height, {
             top: 60,
             bottom: 30,
             left: 60,
-            right: 30
-        };
-        var p = GetContainer('#' + containerId, this._width, this._height, margins);
-        var group = p.group();
-        var container = group.append('g')
+            right: 90
+        }) || this;
+        _this._hasLine = true;
+        _this._hasPoints = false;
+        _this._pointColor = function () { return 'lightgray'; };
+        var plotGroup = _this.group();
+        var plotWidth = _this.width();
+        var plotHeight = _this.height();
+        var container = plotGroup.append('g')
             .classed('chart-container', true);
-        var plotWidth = p.width();
-        var plotHeight = p.height();
-        this._xAxis = new BottomLinearAxis(container, plotWidth, plotHeight);
-        this._yAxis = new LeftLinearAxis(container, plotWidth, plotHeight)
+        //     constructor(containerId: string, private _width: number, private _height: number) {
+        // super()
+        //         let margins = {
+        //             top: 60,
+        //             bottom: 30,
+        //             left: 60,
+        //             right: 30
+        //         };
+        //         var p = GetContainer('#' + containerId, this._width, this._height, margins);
+        //         let group = p.group();
+        //         var container = group.append('g')
+        //             .classed('chart-container', true);
+        //         let plotWidth = p.width();
+        //         let plotHeight = p.height();
+        _this._xAxis = new BottomLinearAxis(container, plotWidth, plotHeight);
+        _this._yAxis = new LeftLinearAxis(container, plotWidth, plotHeight)
             .format('s');
-        this.initPathGenerator(container);
-        this._pointsGroup = container.append('g')
+        _this.initPathGenerator(container);
+        _this._pointsGroup = container.append('g')
             .classed('points', true);
-        this._title = new title(p.parent(), this._width, this._height);
-        this._x = function (d) { return d.x; };
-        this._y = function (d) { return d.y; };
+        return _this;
+        // this._title = new title(p.parent(), this._width, this._height);
+        // this._x = (d: any) => d.x;
+        // this._y = (d: any) => d.y;
     }
     LinearLinearChart.prototype.hasLine = function (value) {
         this._hasLine = value;
@@ -462,33 +487,31 @@ var LinearLinearChart = (function () {
         this._pointColor = value;
         return this;
     };
-    LinearLinearChart.prototype.x = function (value) {
-        this._x = value;
-        return this;
-    };
+    // x(value: (d: T) => number): LinearLinearChart<T> {
+    //     this._x = value;
+    //     return this;
+    // }
     LinearLinearChart.prototype.xFormat = function (value) {
         this._xAxis.format(value);
         return this;
     };
-    LinearLinearChart.prototype.y = function (value) {
-        this._y = value;
-        return this;
-    };
+    // y(value: (d: T) => number): LinearLinearChart<T> {
+    //     this._y = value;
+    //     return this;
+    // }
     LinearLinearChart.prototype.yFormat = function (value) {
         this._yAxis.format(value);
         return this;
     };
-    LinearLinearChart.prototype.title = function (value) {
-        this._title.text(value);
-        return this;
-    };
     LinearLinearChart.prototype.update = function (data, xDomain, yDomain) {
         var _this = this;
+        var xFunction = this.x();
+        var yFunction = this.y();
         if (!xDomain) {
-            xDomain = d3.extent(data, function (d) { return _this._x(d); });
+            xDomain = d3.extent(data, function (d) { return xFunction(d); });
         }
         if (!yDomain) {
-            yDomain = d3.extent(data, function (d) { return _this._y(d); });
+            yDomain = d3.extent(data, function (d) { return yFunction(d); });
         }
         this._xAxis.domain(xDomain);
         this._yAxis.domain(yDomain);
@@ -509,24 +532,22 @@ var LinearLinearChart = (function () {
         var merged = enterSelection.merge(dataBound);
         merged.style('visibility', this._hasPoints ? 'visible' : 'hidden');
         merged.select('circle')
-            .attr('cx', function (d) { return _this._xAxis.scale(_this._x(d)); })
-            .attr('cy', function (d) { return _this._yAxis.scale(_this._y(d)); })
+            .attr('cx', function (d) { return _this._xAxis.scale(xFunction(d)); })
+            .attr('cy', function (d) { return _this._yAxis.scale(yFunction(d)); })
             .style('fill', function (d, i) { return _this._pointColor(d, i); });
     };
     LinearLinearChart.prototype.initPathGenerator = function (container) {
         var _this = this;
         this._pathGenerator = d3$7.line()
-            .x(function (d) { return _this._xAxis.scale(_this._x(d)); })
-            .y(function (d) { return _this._yAxis.scale(_this._y(d)); });
+            .x(function (d) { return _this._xAxis.scale(_this.x()(d)); })
+            .y(function (d) { return _this._yAxis.scale(_this.y()(d)); });
         this._pathGroup = container.append('g')
             .append('path')
             .classed('trace', true)
             .style('fill', 'none');
     };
     return LinearLinearChart;
-}());
-
-//# sourceMappingURL=LinearLinearChart.js.map
+}(ChartBase));
 
 var Legend = (function () {
     function Legend(container, _width, _height) {
@@ -585,7 +606,7 @@ var Legend = (function () {
 
 //# sourceMappingURL=Legend.js.map
 
-var __extends$1 = (undefined && undefined.__extends) || (function () {
+var __extends$2 = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -596,7 +617,7 @@ var __extends$1 = (undefined && undefined.__extends) || (function () {
     };
 })();
 var CategoricalLinearChart = (function (_super) {
-    __extends$1(CategoricalLinearChart, _super);
+    __extends$2(CategoricalLinearChart, _super);
     function CategoricalLinearChart(selector, width, height) {
         var _this = _super.call(this, selector, width, height, {
             top: 60,
