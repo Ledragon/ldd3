@@ -17,7 +17,7 @@
     "clean": "rimraf src/**/*.js src/**/*.js.map src/**/*.d.ts build",
     "rollup": "rollup -c",
     "rollup:watch": "rollup -c -w",
-    "rollup:test": "rollup -c -w --output test/js/ldd3.js",
+    "rollup:test": "rollup -c -w --output test/js/ldd3.js -m",
     "serve": "live-server test",
     "uglify": "uglifyjs build/ldd3.js -m -o build/ldd3.min.js",
     "pretest": "rollup -c rollup.d3.js && uglifyjs test/js/d3.js -m -o test/js/d3.min.js && rimraf test/js/d3.js"

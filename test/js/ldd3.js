@@ -535,67 +535,111 @@ var Legend = (function () {
 
 //# sourceMappingURL=Legend.js.map
 
-var CategoricalLinearChart = (function () {
-    function CategoricalLinearChart(selector, _width, _height) {
-        var _this = this;
+var ChartBase = (function () {
+    function ChartBase(selector, _width, _height, plotMargins) {
         this._width = _width;
         this._height = _height;
-        var plotMargins = {
+        var container = GetContainer(selector, _width, _height, plotMargins);
+        this._container = container;
+        this._group = container.group();
+        this._plotWidth = container.width();
+        this._plotHeight = container.height();
+        this._title = new title(this.parent(), _width, _height);
+    }
+    ChartBase.prototype.group = function () {
+        return this._group;
+    };
+    ChartBase.prototype.width = function () {
+        return this._plotWidth;
+    };
+    ChartBase.prototype.height = function () {
+        return this._plotHeight;
+    };
+    ChartBase.prototype.parent = function () {
+        return this._container.parent();
+    };
+    ChartBase.prototype.x = function (value) {
+        if (arguments.length) {
+            this._x = value;
+            return this;
+        }
+        else {
+            return this._x;
+        }
+    };
+    ChartBase.prototype.y = function (value) {
+        if (arguments.length) {
+            this._y = value;
+            return this;
+        }
+        else {
+            return this._y;
+        }
+    };
+    ChartBase.prototype.title = function (value) {
+        this._title.text(value);
+        return this;
+    };
+    return ChartBase;
+}());
+
+//# sourceMappingURL=ChartBase.js.map
+
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+/**
+ * A categorical-linear chart.
+ * ![img](./CategoricalLinearChart.png)
+ */
+var CategoricalLinearChart = (function (_super) {
+    __extends(CategoricalLinearChart, _super);
+    function CategoricalLinearChart(selector, width, height) {
+        var _this = _super.call(this, selector, width, height, {
             top: 60,
             bottom: 30,
             left: 60,
             right: 90
-        };
-        var container = GetContainer(selector, _width, _height, plotMargins);
-        this._group = container.group();
-        var plotGroup = container.group();
-        var plotWidth = container.width();
-        var plotHeight = container.height();
-        this._xAxis = new BottomCategoricalAxis(this._group, plotWidth, plotHeight);
-        this._yAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
-        this._lineGenerator = d3$7.line()
+        }) || this;
+        var plotGroup = _this.group();
+        var plotWidth = _this.width();
+        var plotHeight = _this.height();
+        _this._xAxis = new BottomCategoricalAxis(plotGroup, plotWidth, plotHeight);
+        _this._yAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
+        _this._lineGenerator = d3$7.line()
             .curve(d3$7.curveStep)
-            .x(function (d, i) { return _this._xAxis.scale(_this._x(d, i)) + _this._xAxis.bandWidth() / 2; })
-            .y(function (d, i) { return _this._yAxis.scale(_this._y(d, i)); });
+            .x(function (d, i) { return _this._xAxis.scale(_this.x()(d, i)) + _this._xAxis.bandWidth() / 2; })
+            .y(function (d, i) { return _this._yAxis.scale(_this.y()(d, i)); });
         var legendWidth = 90;
-        var legendContainer = container.parent()
+        var legendContainer = _this.parent()
             .append('g')
-            .attr('transform', function (d, i) { return "translate(" + _this._width + "," + _this._height / 2 + ")"; });
-        this._legend = new Legend(legendContainer, this._width, plotHeight)
+            .attr('transform', function (d, i) { return "translate(" + width + "," + height / 2 + ")"; });
+        _this._legend = new Legend(legendContainer, width, plotHeight)
             .label(function (d) { return d.key; })
             .color(function (d, i) { return d3$5.schemeCategory10[i]; });
-        this._title = new title(container.parent(), _width, _height);
+        return _this;
     }
-    CategoricalLinearChart.prototype.x = function (value) {
-        if (arguments.length) {
-            this._x = value;
-        }
-        return this;
-    };
-    CategoricalLinearChart.prototype.y = function (value) {
-        if (arguments.length) {
-            this._y = value;
-        }
-        return this;
-    };
     CategoricalLinearChart.prototype.groupBy = function (value) {
         if (arguments.length) {
             this._groupBy = value;
         }
         return this;
     };
-    CategoricalLinearChart.prototype.title = function (value) {
-        this._title.text(value);
-        return this;
-    };
     CategoricalLinearChart.prototype.update = function (data) {
         var _this = this;
-        this._xAxis.domain(data.map(function (d, i) { return _this._x(d, i); }));
-        this._yAxis.domain([0, d3.max(data, function (d, i) { return _this._y(d, i); })]);
+        this._xAxis.domain(data.map(function (d, i) { return _this.x()(d, i); }));
+        this._yAxis.domain([0, d3.max(data, function (d, i) { return _this.y()(d, i); })]);
         var grouped = d3$2.nest()
             .key(function (d) { return _this._groupBy(d); })
             .entries(data);
-        var dataBound = this._group.selectAll('.series')
+        var dataBound = this.group().selectAll('.series')
             .data(grouped);
         dataBound.exit()
             .remove();
@@ -609,9 +653,7 @@ var CategoricalLinearChart = (function () {
         this._legend.update(grouped);
     };
     return CategoricalLinearChart;
-}());
-
-//# sourceMappingURL=CategoricalLinearChart.js.map
+}(ChartBase));
 
 var TimeLinearChart = (function () {
     function TimeLinearChart(selector, width, height) {
@@ -881,3 +923,4 @@ exports.MultiCategoricalChart = MultiCategoricalChart;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+//# sourceMappingURL=ldd3.js.map

@@ -3,70 +3,47 @@ import * as d3 from '../d3-bundle';
 import { GetContainer } from '../plotFactory';
 import { BottomCategoricalAxis, LeftLinearAxis } from '../Axes';
 import { Legend } from '../Legend';
-import { title } from '../title';
+import { ChartBase } from './ChartBase';
 
 /**
  * A categorical-linear chart.
  * ![img](./CategoricalLinearChart.png)
  */
-export class CategoricalLinearChart<T> {
-    private _group: d3.Selection<any, any, any, any>;
+export class CategoricalLinearChart<T> extends ChartBase<T, string, number> {
     private _xAxis: BottomCategoricalAxis<T>;
     private _yAxis: LeftLinearAxis<T>;
     private _lineGenerator: d3.Line<T>;
-    private _x: (d: T, i: number) => string;
-    private _y: (d: T, i: number) => number;
     private _groupBy: (d: T) => string;
-    private _title: title;
     private _legend: Legend<any>;
 
     constructor(selector: string, width: number, height: number);
     constructor(selector: d3.BaseType, width: number, height: number);
-    constructor(selector: string | d3.BaseType, private _width: number, private _height: number) {
-        let plotMargins = {
+    constructor(selector: string | d3.BaseType, width: number, height: number) {
+        super(selector, width, height, {
             top: 60,
             bottom: 30,
             left: 60,
             right: 90
-        };
-        var container = GetContainer(selector, _width, _height, plotMargins);
-        this._group = container.group();
+        });
 
-        const plotGroup = container.group();
-        const plotWidth = container.width();
-        const plotHeight = container.height();
+        const plotGroup = this.group();
+        const plotWidth = this.width();
+        const plotHeight = this.height();
 
-        this._xAxis = new BottomCategoricalAxis(this._group, plotWidth, plotHeight);
+        this._xAxis = new BottomCategoricalAxis(plotGroup, plotWidth, plotHeight);
         this._yAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
         this._lineGenerator = d3.line<T>()
             .curve(d3.curveStep)
-            .x((d, i) => this._xAxis.scale(this._x(d, i)) + this._xAxis.bandWidth() / 2)
-            .y((d, i) => this._yAxis.scale(this._y(d, i)));
+            .x((d, i) => this._xAxis.scale(this.x()(d, i)) + this._xAxis.bandWidth() / 2)
+            .y((d, i) => this._yAxis.scale(this.y()(d, i)));
 
         var legendWidth = 90;
-        var legendContainer = container.parent()
+        var legendContainer = this.parent()
             .append('g')
-            .attr('transform', (d, i) => `translate(${this._width},${this._height / 2})`);
-        this._legend = new Legend<any>(legendContainer, this._width, plotHeight)
+            .attr('transform', (d, i) => `translate(${width},${height / 2})`);
+        this._legend = new Legend<any>(legendContainer, width, plotHeight)
             .label(d => d.key)
             .color((d, i) => d3.schemeCategory10[i]);
-
-        this._title = new title(container.parent(), _width, _height);
-
-    }
-
-    x(value: (d: T, i: number) => string): this {
-        if (arguments.length) {
-            this._x = value;
-        }
-        return this;
-    }
-
-    y(value: (d: T, i: number) => number): this {
-        if (arguments.length) {
-            this._y = value;
-        }
-        return this;
     }
 
     groupBy(value: (d: T) => string): this {
@@ -76,19 +53,14 @@ export class CategoricalLinearChart<T> {
         return this;
     }
 
-    title(value: string): this {
-        this._title.text(value);
-        return this;
-    }
-
     update(data: Array<T>): void {
-        this._xAxis.domain(data.map((d, i) => this._x(d, i)));
-        this._yAxis.domain([0, d3.max(data, (d, i) => this._y(d, i))]);
+        this._xAxis.domain(data.map((d, i) => this.x()(d, i)));
+        this._yAxis.domain([0, d3.max(data, (d, i) => this.y()(d, i))]);
 
         let grouped = d3.nest<T>()
             .key(d => this._groupBy(d))
             .entries(data);
-        var dataBound = this._group.selectAll('.series')
+        var dataBound = this.group().selectAll('.series')
             .data(grouped);
         dataBound.exit()
             .remove();
