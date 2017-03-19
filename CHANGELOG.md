@@ -1,10 +1,12 @@
+# 0.3.1
+* Labels position in horizontal bar chart improved
+
 # 0.3.0
 * BREAKING CHANGES
   * HorizontalBarChart constructor requires a CSS selector (i.e. `#chart`) instead of an id previously
   * LinearLinearChart constructor requires a CSS selector (i.e. `#chart`) instead of an id previously
 * All constructors now accept d3 selectable element
 * All charts now derive from a base class for more concision and consistency
-
 
 # 0.2.0
 * LinearLinear improvements:

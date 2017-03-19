@@ -29,13 +29,21 @@ All the examples below are extracted from my taking part to the [Makeover Monday
 A chart with categories on the x-axis and a linear y-axis.
 
 ![CategoricalLinearChart](images/CategoricalLinearChart.png)
+
 #### HorizontalBarChart
+
 ![HorizontalBarChart](images/HorizontalBarChart.png)
+
 #### LinearLinearChart
+
 ![LinearLinearChart](images/LinearLinearChart.png)
+
 #### MultiCategoricalChart
+
 ![MultiCategoricalChart](images/MultiCategoricalChart.png)
+
 #### TimeLinearChart
+
 ![TimeLinearChart](images/TimeLinearChart.png)
 
 ## Usage
