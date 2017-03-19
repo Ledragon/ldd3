@@ -36,27 +36,27 @@ export class LinearLinearChart<T> extends ChartBase<T, number, number>{
             .classed('points', true);
     }
 
-    hasLine(value: boolean): LinearLinearChart<T> {
+    hasLine(value: boolean): this {
         this._hasLine = value;
         return this;
     }
 
-    hasPoints(value: boolean): LinearLinearChart<T> {
+    hasPoints(value: boolean): this {
         this._hasPoints = value;
         return this;
     }
 
-    pointColor(value: (d: T, i: number) => string): LinearLinearChart<T> {
+    pointColor(value: (d: T, i: number) => string): this {
         this._pointColor = value;
         return this;
     }
 
-    xFormat(value: string): LinearLinearChart<T> {
+    xFormat(value: string): this {
         this._xAxis.format(value);
         return this;
     }
 
-    yFormat(value: string): LinearLinearChart<T> {
+    yFormat(value: string): this {
         this._yAxis.format(value);
         return this;
     }
@@ -106,5 +106,4 @@ export class LinearLinearChart<T> extends ChartBase<T, number, number>{
             .classed('trace', true)
             .style('fill', 'none');
     }
-
 }

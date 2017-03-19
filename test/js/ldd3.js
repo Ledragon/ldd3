@@ -649,82 +649,6 @@ var CategoricalLinearChart = (function (_super) {
 
 //# sourceMappingURL=CategoricalLinearChart.js.map
 
-var TimeLinearChart = (function () {
-    function TimeLinearChart(selector, width, height) {
-        var svg = d3$6.select(selector)
-            .append('svg')
-            .attr('width', width)
-            .attr('height', height);
-        this._group = svg;
-        var plotMargins = {
-            top: 60,
-            bottom: 30,
-            left: 60,
-            right: 30
-        };
-        svg.append('g')
-            .classed('title', true)
-            .attr('transform', function (d, i) { return "translate(" + width / 2 + "," + 30 + ")"; })
-            .append('text');
-        //TODO avoid nasty casting        
-        var plotGroup = svg.append('g')
-            .classed('plot', true)
-            .attr('transform', "translate(" + plotMargins.left + "," + plotMargins.top + ")");
-        var plotWidth = width - plotMargins.left - plotMargins.right;
-        var plotHeight = height - plotMargins.top - plotMargins.bottom;
-        this._timeAxis = new BottomTimeAxis(plotGroup, plotWidth, plotHeight);
-        this._leftAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
-        this._lineGenerator = d3$7.line();
-        var group = plotGroup.append('g');
-        this._path = group.append('path')
-            .style('fill', 'none')
-            .style('stroke', 'lightgray');
-    }
-    TimeLinearChart.prototype.color = function (value) {
-        this._path.style('stroke', value);
-        return this;
-    };
-    TimeLinearChart.prototype.x = function (value) {
-        var _this = this;
-        if (arguments.length) {
-            this._x = value;
-            this._lineGenerator.x(function (d, i) { return _this._timeAxis.scale(_this._x(d, i)); });
-        }
-        return this;
-    };
-    TimeLinearChart.prototype.y = function (value) {
-        var _this = this;
-        if (arguments.length) {
-            this._y = value;
-            this._lineGenerator.y(function (d, i) { return _this._leftAxis.scale(_this._y(d, i)); });
-        }
-        return this;
-    };
-    TimeLinearChart.prototype.xFormat = function (value) {
-        this._timeAxis.format(value);
-        return this;
-    };
-    TimeLinearChart.prototype.yFormat = function (value) {
-        this._leftAxis.format(value);
-        return this;
-    };
-    TimeLinearChart.prototype.title = function (value) {
-        this._group.select('.title')
-            .select('text')
-            .text(value);
-        return this;
-    };
-    TimeLinearChart.prototype.update = function (data) {
-        var _this = this;
-        this._timeAxis.domain(d3.extent(data, function (d, i) { return _this._x(d, i); }));
-        this._leftAxis.domain([0, d3.max(data, function (d, i) { return _this._y(d, i); })]);
-        this._path.attr('d', this._lineGenerator(data));
-    };
-    return TimeLinearChart;
-}());
-
-//# sourceMappingURL=TimeLinearChart.js.map
-
 var __extends$3 = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -735,8 +659,62 @@ var __extends$3 = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+var TimeLinearChart = (function (_super) {
+    __extends$3(TimeLinearChart, _super);
+    function TimeLinearChart(selector, width, height) {
+        var _this = _super.call(this, selector, width, height, {
+            top: 60,
+            bottom: 30,
+            left: 60,
+            right: 90
+        }) || this;
+        var plotGroup = _this.group();
+        var plotWidth = _this.width();
+        var plotHeight = _this.height();
+        _this._timeAxis = new BottomTimeAxis(plotGroup, plotWidth, plotHeight);
+        _this._leftAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
+        var group = plotGroup.append('g');
+        _this._path = group.append('path')
+            .style('fill', 'none')
+            .style('stroke', 'lightgray');
+        return _this;
+    }
+    TimeLinearChart.prototype.color = function (value) {
+        this._path.style('stroke', value);
+        return this;
+    };
+    TimeLinearChart.prototype.xFormat = function (value) {
+        this._timeAxis.format(value);
+        return this;
+    };
+    TimeLinearChart.prototype.yFormat = function (value) {
+        this._leftAxis.format(value);
+        return this;
+    };
+    TimeLinearChart.prototype.update = function (data) {
+        var _this = this;
+        var lineGenerator = d3$7.line()
+            .x(function (d, i) { return _this._timeAxis.scale(_this.x()(d, i)); })
+            .y(function (d, i) { return _this._leftAxis.scale(_this.y()(d, i)); });
+        this._timeAxis.domain(d3.extent(data, function (d, i) { return _this.x()(d, i); }));
+        this._leftAxis.domain([0, d3.max(data, function (d, i) { return _this.y()(d, i); })]);
+        this._path.attr('d', lineGenerator(data));
+    };
+    return TimeLinearChart;
+}(ChartBase));
+
+var __extends$4 = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var MultiCategoricalChart = (function (_super) {
-    __extends$3(MultiCategoricalChart, _super);
+    __extends$4(MultiCategoricalChart, _super);
     function MultiCategoricalChart(selector, width, height) {
         var _this = _super.call(this, selector, width, height, {
             top: 60,
@@ -824,6 +802,8 @@ var MultiCategoricalChart = (function (_super) {
     };
     return MultiCategoricalChart;
 }(ChartBase));
+
+//# sourceMappingURL=MultiCategoricalChart.js.map
 
 //# sourceMappingURL=Charts.js.map
 

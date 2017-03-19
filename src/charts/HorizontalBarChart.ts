@@ -34,17 +34,17 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
         this._color = () => 'lightgray';
     }
 
-    padding(value: number): HorizontalBarChart<T> {
+    padding(value: number): this {
         this._yAxis.padding(value);
         return this;
     }
 
-    color(value: (d: T) => string): HorizontalBarChart<T> {
+    color(value: (d: T) => string): this {
         this._color = value;
         return this;
     }
 
-    format(value: string): HorizontalBarChart<T> {
+    format(value: string): this {
         this._format = d3.format(value);
         return this;
     }
