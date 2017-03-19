@@ -1,7 +1,7 @@
 import * as d3 from '../d3-bundle';
 
-import { LeftLinearAxis, BottomCategoricalAxis } from '../Axes';
 import { GetContainer } from '../plotFactory';
+import { LeftLinearAxis, BottomCategoricalAxis } from '../Axes';
 import { Legend } from '../Legend';
 import { title } from '../title';
 

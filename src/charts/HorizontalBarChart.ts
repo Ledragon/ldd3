@@ -14,7 +14,7 @@ export class HorizontalBarChart<T>{
     private _color: (d: T) => string;
     private _format: (d: number) => string;
 
-    constructor(containerId: string, private _width: number, private _height: number) {
+    constructor(selector: string, private _width: number, private _height: number) {
         let plotMargins = {
             top: 60,
             bottom: 30,
@@ -22,7 +22,6 @@ export class HorizontalBarChart<T>{
             right: 30
         };
 
-        let selector = '#' + containerId;
         let p = factory.GetContainer(selector, this._width, this._height, plotMargins);
         let plotGroup = p.group();
         let plotHeight = p.height();
