@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    var test = new ldd3.HorizontalBarChart('chart', 800, 600)
+    var test = new ldd3.HorizontalBarChart('#chart', 800, 600)
         .title('Horizontal bar chart')
         .padding(0.3)
         .x(d => d.values.length)

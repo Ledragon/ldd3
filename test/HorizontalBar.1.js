@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    var test = new ldd3.HorizontalBarChart('chart2', 800, 600)
+    var test = new ldd3.HorizontalBarChart('#chart2', 800, 600)
         .x(d => d.price)
         .y(d => d.country)
         .title('Potato selling price (€/100kg)')

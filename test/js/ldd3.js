@@ -233,24 +233,6 @@ var TopLinearAxis = (function () {
 
 //# sourceMappingURL=Axes.js.map
 
-var title = (function () {
-    function title(container, width, height) {
-        this._group = container.append('g')
-            .classed('chart-title', true)
-            .attr('transform', "translate(" + width / 2 + "," + 30 + ")");
-        this._group.append('text');
-    }
-    title.prototype.text = function (value) {
-        this._group.select('text').text(value);
-    };
-    title.prototype.classed = function (value) {
-        this._group.classed(value, true);
-    };
-    return title;
-}());
-
-//# sourceMappingURL=title.js.map
-
 var ChartContainer = (function () {
     function ChartContainer(container, width, height, margins) {
         this._parent = container;
@@ -289,43 +271,107 @@ function GetContainer(selector, width, height, margins) {
 }
 //# sourceMappingURL=plotFactory.js.map
 
-var HorizontalBarChart = (function () {
-    function HorizontalBarChart(selector, _width, _height) {
+var title = (function () {
+    function title(container, width, height) {
+        this._group = container.append('g')
+            .classed('chart-title', true)
+            .attr('transform', "translate(" + width / 2 + "," + 30 + ")");
+        this._group.append('text');
+    }
+    title.prototype.text = function (value) {
+        this._group.select('text').text(value);
+    };
+    title.prototype.classed = function (value) {
+        this._group.classed(value, true);
+    };
+    return title;
+}());
+
+//# sourceMappingURL=title.js.map
+
+var ChartBase = (function () {
+    function ChartBase(selector, _width, _height, plotMargins) {
         this._width = _width;
         this._height = _height;
-        var plotMargins = {
+        var container = GetContainer(selector, _width, _height, plotMargins);
+        this._container = container;
+        this._group = container.group();
+        this._plotWidth = container.width();
+        this._plotHeight = container.height();
+        this._title = new title(this.parent(), _width, _height);
+    }
+    ChartBase.prototype.group = function () {
+        return this._group;
+    };
+    ChartBase.prototype.width = function () {
+        return this._plotWidth;
+    };
+    ChartBase.prototype.height = function () {
+        return this._plotHeight;
+    };
+    ChartBase.prototype.parent = function () {
+        return this._container.parent();
+    };
+    ChartBase.prototype.x = function (value) {
+        if (arguments.length) {
+            this._x = value;
+            return this;
+        }
+        else {
+            return this._x;
+        }
+    };
+    ChartBase.prototype.y = function (value) {
+        if (arguments.length) {
+            this._y = value;
+            return this;
+        }
+        else {
+            return this._y;
+        }
+    };
+    ChartBase.prototype.title = function (value) {
+        this._title.text(value);
+        return this;
+    };
+    return ChartBase;
+}());
+
+//# sourceMappingURL=ChartBase.js.map
+
+var __extends = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var HorizontalBarChart = (function (_super) {
+    __extends(HorizontalBarChart, _super);
+    function HorizontalBarChart(selector, width, height) {
+        var _this = _super.call(this, selector, width, height, {
             top: 60,
             bottom: 30,
             left: 120,
             right: 30
-        };
-        var p = GetContainer(selector, this._width, this._height, plotMargins);
-        var plotGroup = p.group();
-        var plotHeight = p.height();
-        var plotWidth = p.width();
-        this._title = new title(d3$6.select(selector).select('svg'), this._width, this._height);
-        this._yAxis = new LeftCategoricalAxis(plotGroup, plotWidth, plotHeight)
+        }) || this;
+        var plotGroup = _this.group();
+        var plotHeight = _this.height();
+        var plotWidth = _this.width();
+        _this._yAxis = new LeftCategoricalAxis(plotGroup, plotWidth, plotHeight)
             .padding(0.5);
-        this._xScale = d3$5.scaleLinear()
+        _this._xScale = d3$5.scaleLinear()
             .range([0, plotWidth]);
-        this._seriesGroup = plotGroup.append('g')
+        _this._seriesGroup = plotGroup.append('g')
             .classed('series-group', true);
-        this._color = function () { return 'lightgray'; };
+        _this._color = function () { return 'lightgray'; };
+        return _this;
     }
-    HorizontalBarChart.prototype.x = function (value) {
-        this._x = value;
-        return this;
-    };
-    HorizontalBarChart.prototype.y = function (value) {
-        this._y = value;
-        return this;
-    };
     HorizontalBarChart.prototype.padding = function (value) {
         this._yAxis.padding(value);
-        return this;
-    };
-    HorizontalBarChart.prototype.title = function (value) {
-        this._title.text(value);
         return this;
     };
     HorizontalBarChart.prototype.color = function (value) {
@@ -338,8 +384,10 @@ var HorizontalBarChart = (function () {
     };
     HorizontalBarChart.prototype.update = function (data) {
         var _this = this;
-        this._yAxis.domain(data.map(this._y));
-        this._xScale.domain([0, d3.max(data, this._x)]);
+        var xFunction = this.x();
+        var yFunction = this.y();
+        this._yAxis.domain(data.map(yFunction));
+        this._xScale.domain([0, d3.max(data, xFunction)]);
         var dataBound = this._seriesGroup.selectAll('.series')
             .data(data);
         dataBound
@@ -358,18 +406,18 @@ var HorizontalBarChart = (function () {
             .classed('bar-label', true)
             .attr('y', this._yAxis.bandWidth() / 2);
         var merged = enterSelection.merge(dataBound);
-        merged.attr('transform', function (d, i) { return "translate(" + 0 + "," + _this._yAxis.scale(_this._y(d)) + ")"; });
+        merged.attr('transform', function (d, i) { return "translate(" + 0 + "," + _this._yAxis.scale(yFunction(d, i)) + ")"; });
         merged.select('rect')
-            .attr('width', function (d) { return _this._xScale(_this._x(d)); })
+            .transition()
+            .attr('width', function (d, i) { return _this._xScale(xFunction(d, i)); })
             .style('fill', function (d) { return _this._color(d); });
         merged.select('text')
-            .attr('x', function (d) { return _this._xScale(_this._x(d)) + (_this._xScale(_this._x(d)) < 30 ? 25 : -5); })
-            .text(function (d) { return _this._format ? _this._format(_this._x(d)) : _this._x(d); });
+            .transition()
+            .attr('x', function (d, i) { return _this._xScale(xFunction(d, i)) + (_this._xScale(xFunction(d, i)) < 30 ? 25 : -5); })
+            .text(function (d, i) { return _this._format ? _this._format(xFunction(d, i)) : xFunction(d, i); });
     };
     return HorizontalBarChart;
-}());
-
-//# sourceMappingURL=HorizontalBarChart.js.map
+}(ChartBase));
 
 var LinearLinearChart = (function () {
     function LinearLinearChart(containerId, _width, _height) {
@@ -535,57 +583,7 @@ var Legend = (function () {
 
 //# sourceMappingURL=Legend.js.map
 
-var ChartBase = (function () {
-    function ChartBase(selector, _width, _height, plotMargins) {
-        this._width = _width;
-        this._height = _height;
-        var container = GetContainer(selector, _width, _height, plotMargins);
-        this._container = container;
-        this._group = container.group();
-        this._plotWidth = container.width();
-        this._plotHeight = container.height();
-        this._title = new title(this.parent(), _width, _height);
-    }
-    ChartBase.prototype.group = function () {
-        return this._group;
-    };
-    ChartBase.prototype.width = function () {
-        return this._plotWidth;
-    };
-    ChartBase.prototype.height = function () {
-        return this._plotHeight;
-    };
-    ChartBase.prototype.parent = function () {
-        return this._container.parent();
-    };
-    ChartBase.prototype.x = function (value) {
-        if (arguments.length) {
-            this._x = value;
-            return this;
-        }
-        else {
-            return this._x;
-        }
-    };
-    ChartBase.prototype.y = function (value) {
-        if (arguments.length) {
-            this._y = value;
-            return this;
-        }
-        else {
-            return this._y;
-        }
-    };
-    ChartBase.prototype.title = function (value) {
-        this._title.text(value);
-        return this;
-    };
-    return ChartBase;
-}());
-
-//# sourceMappingURL=ChartBase.js.map
-
-var __extends = (undefined && undefined.__extends) || (function () {
+var __extends$1 = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
         function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
@@ -595,12 +593,8 @@ var __extends = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-/**
- * A categorical-linear chart.
- * ![img](./CategoricalLinearChart.png)
- */
 var CategoricalLinearChart = (function (_super) {
-    __extends(CategoricalLinearChart, _super);
+    __extends$1(CategoricalLinearChart, _super);
     function CategoricalLinearChart(selector, width, height) {
         var _this = _super.call(this, selector, width, height, {
             top: 60,
@@ -654,6 +648,8 @@ var CategoricalLinearChart = (function (_super) {
     };
     return CategoricalLinearChart;
 }(ChartBase));
+
+//# sourceMappingURL=CategoricalLinearChart.js.map
 
 var TimeLinearChart = (function () {
     function TimeLinearChart(selector, width, height) {

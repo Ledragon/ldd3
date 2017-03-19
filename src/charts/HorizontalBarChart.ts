@@ -3,31 +3,26 @@ import * as d3 from '../d3-bundle';
 import { title } from '../title';
 import * as factory from '../plotFactory';
 import { LeftCategoricalAxis } from '../Axes';
+import { ChartBase } from './ChartBase';
 
-export class HorizontalBarChart<T>{
-    private _x: (d: T) => number;
-    private _y: (d: T) => string;
+export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
     private _xScale: d3.ScaleLinear<number, number>;
     private _yAxis: LeftCategoricalAxis<T>;
-    private _title: title;
     private _seriesGroup: d3.Selection<SVGElement, T, any, any>;
     private _color: (d: T) => string;
     private _format: (d: number) => string;
 
-    constructor(selector: string, private _width: number, private _height: number) {
-        let plotMargins = {
+    constructor(selector: string, width: number, height: number) {
+        super(selector, width, height, {
             top: 60,
             bottom: 30,
             left: 120,
             right: 30
-        };
+        });
 
-        let p = factory.GetContainer(selector, this._width, this._height, plotMargins);
-        let plotGroup = p.group();
-        let plotHeight = p.height();
-        let plotWidth = p.width();
-
-        this._title = new title(d3.select(selector).select('svg'), this._width, this._height);
+        let plotGroup = this.group();
+        let plotHeight = this.height();
+        let plotWidth = this.width();
 
         this._yAxis = new LeftCategoricalAxis(plotGroup, plotWidth, plotHeight)
             .padding(0.5);
@@ -39,24 +34,8 @@ export class HorizontalBarChart<T>{
         this._color = () => 'lightgray';
     }
 
-
-    x(value: (d: T) => number): HorizontalBarChart<T> {
-        this._x = value;
-        return this;
-    }
-
-    y(value: (d: T) => string): HorizontalBarChart<T> {
-        this._y = value;
-        return this;
-    }
-
     padding(value: number): HorizontalBarChart<T> {
         this._yAxis.padding(value);
-        return this;
-    }
-
-    title(value: string): HorizontalBarChart<T> {
-        this._title.text(value);
         return this;
     }
 
@@ -71,8 +50,11 @@ export class HorizontalBarChart<T>{
     }
 
     update(data: Array<T>): void {
-        this._yAxis.domain(data.map(this._y));
-        this._xScale.domain([0, d3.max(data, this._x)]);
+        let xFunction = this.x();
+        let yFunction = this.y();
+
+        this._yAxis.domain(data.map(yFunction));
+        this._xScale.domain([0, d3.max(data, xFunction)]);
 
         var dataBound = this._seriesGroup.selectAll('.series')
             .data(data);
@@ -91,19 +73,18 @@ export class HorizontalBarChart<T>{
             .attr('height', this._yAxis.bandWidth())
             .style('stroke', 'none')
         enterSelection.append('text')
-        .classed('bar-label', true)    
-            // .style('text-anchor', 'end')
-            // .style('font-size', '10px')
-            .attr('y', this._yAxis.bandWidth()/2);
-
+            .classed('bar-label', true)
+            .attr('y', this._yAxis.bandWidth() / 2);
         var merged = enterSelection.merge(dataBound);
-        merged.attr('transform', (d, i) => `translate(${0},${this._yAxis.scale(this._y(d))})`)
+        merged.attr('transform', (d, i) => `translate(${0},${this._yAxis.scale(yFunction(d, i))})`)
         merged.select('rect')
-            .attr('width', d => this._xScale(this._x(d)))
+            .transition()
+            .attr('width', (d, i) => this._xScale(xFunction(d, i)))
             .style('fill', d => this._color(d));
         merged.select('text')
-            .attr('x', d => this._xScale(this._x(d)) + (this._xScale(this._x(d)) < 30 ? 25 : -5))
-            .text(d => this._format ? this._format(this._x(d)) : this._x(d));
+            .transition()
+            .attr('x', (d, i) => this._xScale(xFunction(d, i)) + (this._xScale(xFunction(d, i)) < 30 ? 25 : -5))
+            .text((d, i) => this._format ? this._format(xFunction(d, i)) : xFunction(d, i));
 
     }
 }
