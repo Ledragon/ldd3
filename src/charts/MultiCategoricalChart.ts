@@ -45,40 +45,40 @@ export class MultiCategoricalChart<T> {
         this._title = new title(container.parent(), _width, _height);
     }
     
-    color(value: (i: number) => string): MultiCategoricalChart<T> {
+    color(value: (i: number) => string): this {
         if (value) {
             this._colorScale = value;
         }
         return this;
     }
 
-    title(value: string): MultiCategoricalChart<T> {
+    title(value: string): this {
         this._title.text(value);
         return this;
     }
 
-    x(value: (d: T) => string): MultiCategoricalChart<T> {
+    x(value: (d: T) => string): this {
         if (arguments.length) {
             this._x = value;
         }
         return this;
     }
 
-    y(value: (d: T) => number): MultiCategoricalChart<T> {
+    y(value: (d: T) => number): this {
         if (arguments.length) {
             this._y = value;
         }
         return this;
     }
 
-    yFormat(value: string): MultiCategoricalChart<T> {
+    yFormat(value: string): this {
         if (arguments.length) {
             this._yAxis.format(value);
         }
         return this;
     }
 
-    groupBy(value: (d: T) => string): MultiCategoricalChart<T> {
+    groupBy(value: (d: T) => string): this {
         if (arguments.length) {
             this._groupBy = value;
         }

@@ -11,11 +11,9 @@ import { title } from '../title';
  */
 export class CategoricalLinearChart<T> {
     private _group: d3.Selection<any, any, any, any>;
-    // private _plotGroup: d3.Selection<any, any, any, any>;
     private _xAxis: BottomCategoricalAxis<T>;
     private _yAxis: LeftLinearAxis<T>;
     private _lineGenerator: d3.Line<T>;
-    // private _plotHeight: number;
     private _x: (d: T, i: number) => string;
     private _y: (d: T, i: number) => number;
     private _groupBy: (d: T) => string;
@@ -57,28 +55,28 @@ export class CategoricalLinearChart<T> {
 
     }
 
-    x(value: (d: T, i: number) => string): CategoricalLinearChart<T> {
+    x(value: (d: T, i: number) => string): this {
         if (arguments.length) {
             this._x = value;
         }
         return this;
     }
 
-    y(value: (d: T, i: number) => number): CategoricalLinearChart<T> {
+    y(value: (d: T, i: number) => number): this {
         if (arguments.length) {
             this._y = value;
         }
         return this;
     }
 
-    groupBy(value: (d: T) => string): CategoricalLinearChart<T> {
+    groupBy(value: (d: T) => string): this {
         if (arguments.length) {
             this._groupBy = value;
         }
         return this;
     }
 
-    title(value: string): CategoricalLinearChart<T> {
+    title(value: string): this {
         this._title.text(value);
         return this;
     }
