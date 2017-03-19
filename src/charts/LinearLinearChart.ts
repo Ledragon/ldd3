@@ -1,10 +1,7 @@
 import * as d3 from '../d3-bundle';
 
-// import { title } from '../title';
-// import { GetContainer } from '../plotFactory';
 import { BottomLinearAxis, LeftLinearAxis } from '../Axes';
 import { ChartBase } from './ChartBase';
-
 
 export class LinearLinearChart<T> extends ChartBase<T, number, number>{
     private _xAxis: BottomLinearAxis<any>;
@@ -15,10 +12,6 @@ export class LinearLinearChart<T> extends ChartBase<T, number, number>{
     private _pathGenerator: d3.Line<any>;
     private _pathGroup: d3.Selection<any, any, any, any>;
     private _pointsGroup: d3.Selection<any, any, any, any>;
-
-    // private _x: (d: T) => number;
-    // private _y: (d: T) => number;
-    // private _title: title;
 
     constructor(selector: string, width: number, height: number);
     constructor(selector: d3.BaseType, width: number, height: number);
@@ -35,31 +28,12 @@ export class LinearLinearChart<T> extends ChartBase<T, number, number>{
         const plotHeight = this.height();
                 var container = plotGroup.append('g')
             .classed('chart-container', true);
-//     constructor(containerId: string, private _width: number, private _height: number) {
-// super()
-
-//         let margins = {
-//             top: 60,
-//             bottom: 30,
-//             left: 60,
-//             right: 30
-//         };
-//         var p = GetContainer('#' + containerId, this._width, this._height, margins);
-//         let group = p.group();
-//         var container = group.append('g')
-//             .classed('chart-container', true);
-//         let plotWidth = p.width();
-//         let plotHeight = p.height();
         this._xAxis = new BottomLinearAxis<T>(container, plotWidth, plotHeight);
         this._yAxis = new LeftLinearAxis<T>(<any>container, plotWidth, plotHeight)
             .format('s');
         this.initPathGenerator(container);
         this._pointsGroup = container.append('g')
             .classed('points', true);
-        // this._title = new title(p.parent(), this._width, this._height);
-
-        // this._x = (d: any) => d.x;
-        // this._y = (d: any) => d.y;
     }
 
     hasLine(value: boolean): LinearLinearChart<T> {
@@ -77,30 +51,15 @@ export class LinearLinearChart<T> extends ChartBase<T, number, number>{
         return this;
     }
 
-    // x(value: (d: T) => number): LinearLinearChart<T> {
-    //     this._x = value;
-    //     return this;
-    // }
-
     xFormat(value: string): LinearLinearChart<T> {
         this._xAxis.format(value);
         return this;
     }
 
-    // y(value: (d: T) => number): LinearLinearChart<T> {
-    //     this._y = value;
-    //     return this;
-    // }
-
     yFormat(value: string): LinearLinearChart<T> {
         this._yAxis.format(value);
         return this;
     }
-
-    // title(value: string): LinearLinearChart<T> {
-    //     this._title.text(value);
-    //     return this;
-    // }
 
     update(data: Array<T>): void;
     update(data: Array<T>, xDomain: [number, number], yDomain: [number, number]): void;

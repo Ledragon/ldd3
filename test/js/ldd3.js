@@ -431,8 +431,6 @@ var __extends$1 = (undefined && undefined.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-// import { title } from '../title';
-// import { GetContainer } from '../plotFactory';
 var LinearLinearChart = (function (_super) {
     __extends$1(LinearLinearChart, _super);
     function LinearLinearChart(selector, width, height) {
@@ -450,20 +448,6 @@ var LinearLinearChart = (function (_super) {
         var plotHeight = _this.height();
         var container = plotGroup.append('g')
             .classed('chart-container', true);
-        //     constructor(containerId: string, private _width: number, private _height: number) {
-        // super()
-        //         let margins = {
-        //             top: 60,
-        //             bottom: 30,
-        //             left: 60,
-        //             right: 30
-        //         };
-        //         var p = GetContainer('#' + containerId, this._width, this._height, margins);
-        //         let group = p.group();
-        //         var container = group.append('g')
-        //             .classed('chart-container', true);
-        //         let plotWidth = p.width();
-        //         let plotHeight = p.height();
         _this._xAxis = new BottomLinearAxis(container, plotWidth, plotHeight);
         _this._yAxis = new LeftLinearAxis(container, plotWidth, plotHeight)
             .format('s');
@@ -471,9 +455,6 @@ var LinearLinearChart = (function (_super) {
         _this._pointsGroup = container.append('g')
             .classed('points', true);
         return _this;
-        // this._title = new title(p.parent(), this._width, this._height);
-        // this._x = (d: any) => d.x;
-        // this._y = (d: any) => d.y;
     }
     LinearLinearChart.prototype.hasLine = function (value) {
         this._hasLine = value;
@@ -487,18 +468,10 @@ var LinearLinearChart = (function (_super) {
         this._pointColor = value;
         return this;
     };
-    // x(value: (d: T) => number): LinearLinearChart<T> {
-    //     this._x = value;
-    //     return this;
-    // }
     LinearLinearChart.prototype.xFormat = function (value) {
         this._xAxis.format(value);
         return this;
     };
-    // y(value: (d: T) => number): LinearLinearChart<T> {
-    //     this._y = value;
-    //     return this;
-    // }
     LinearLinearChart.prototype.yFormat = function (value) {
         this._yAxis.format(value);
         return this;
@@ -548,6 +521,8 @@ var LinearLinearChart = (function (_super) {
     };
     return LinearLinearChart;
 }(ChartBase));
+
+//# sourceMappingURL=LinearLinearChart.js.map
 
 var Legend = (function () {
     function Legend(container, _width, _height) {
@@ -750,56 +725,52 @@ var TimeLinearChart = (function () {
 
 //# sourceMappingURL=TimeLinearChart.js.map
 
-var MultiCategoricalChart = (function () {
-    function MultiCategoricalChart(selector, _width, _height) {
-        var _this = this;
-        this._width = _width;
-        this._height = _height;
-        this._colorScale = function (i) { return d3$5.schemeCategory20[i]; };
+var __extends$3 = (undefined && undefined.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+var MultiCategoricalChart = (function (_super) {
+    __extends$3(MultiCategoricalChart, _super);
+    function MultiCategoricalChart(selector, width, height) {
+        var _this = _super.call(this, selector, width, height, {
+            top: 60,
+            bottom: 30,
+            left: 60,
+            right: 90
+        }) || this;
+        _this._colorScale = function (i) { return d3$5.schemeCategory20[i]; };
         var plotMargins = {
             top: 60,
             bottom: 30,
-            left: 90,
-            right: 210
+            left: 60,
+            right: 90
         };
-        var container = GetContainer(selector, _width, _height, plotMargins);
-        this._group = container.group();
-        this._xAxis = new BottomCategoricalAxis(this._group, container.width(), container.height())
+        var plotGroup = _this.group();
+        var plotWidth = _this.width();
+        var plotHeight = _this.height();
+        _this._xAxis = new BottomCategoricalAxis(plotGroup, plotWidth, plotHeight)
             .padding(0.3);
-        this._yAxis = new LeftLinearAxis(this._group, container.width(), container.height());
-        this._x = function (d) { return d.category; };
-        this._y = function (d) { return d.value; };
-        this._seriesGroup = this._group.append('g')
+        _this._yAxis = new LeftLinearAxis(plotGroup, plotWidth, plotHeight);
+        _this._seriesGroup = plotGroup.append('g')
             .classed('series', true);
-        this._plotHeight = container.height();
-        var legendContainer = container.parent()
+        var legendContainer = _this.parent()
             .append('g')
             .classed('legend-container', true)
-            .attr('transform', "translate(" + (container.width() + plotMargins.left + plotMargins.right) + "," + container.height() / 2 + ")");
-        this._legend = new Legend(legendContainer, container.width(), container.height())
+            .attr('transform', "translate(" + (plotWidth + plotMargins.left + plotMargins.right) + "," + plotHeight / 2 + ")");
+        _this._legend = new Legend(legendContainer, plotWidth, plotHeight)
             .color(function (d, i) { return _this._colorScale(i); })
             .label(function (d) { return d; });
-        this._title = new title(container.parent(), _width, _height);
+        return _this;
     }
     MultiCategoricalChart.prototype.color = function (value) {
         if (value) {
             this._colorScale = value;
-        }
-        return this;
-    };
-    MultiCategoricalChart.prototype.title = function (value) {
-        this._title.text(value);
-        return this;
-    };
-    MultiCategoricalChart.prototype.x = function (value) {
-        if (arguments.length) {
-            this._x = value;
-        }
-        return this;
-    };
-    MultiCategoricalChart.prototype.y = function (value) {
-        if (arguments.length) {
-            this._y = value;
         }
         return this;
     };
@@ -817,9 +788,9 @@ var MultiCategoricalChart = (function () {
     };
     MultiCategoricalChart.prototype.update = function (data, yDomain) {
         var _this = this;
-        this._xAxis.domain(data.map(this._x));
+        this._xAxis.domain(data.map(this.x()));
         if (!yDomain) {
-            yDomain = d3.extent(data, this._y);
+            yDomain = d3.extent(data, this.y());
         }
         this._yAxis.domain(yDomain);
         var bandWidth = this._xAxis.bandWidth();
@@ -827,7 +798,7 @@ var MultiCategoricalChart = (function () {
             .domain(data.map(this._groupBy))
             .range([0, bandWidth]);
         var byCategory = d3$2.nest()
-            .key(this._x)
+            .key(this.x())
             .entries(data);
         var dataBound = this._seriesGroup.selectAll('.category')
             .data(byCategory);
@@ -844,17 +815,15 @@ var MultiCategoricalChart = (function () {
             .data(function (d) { return d.values; })
             .enter()
             .append('rect')
-            .attr('y', function (d, i) { return _this._yAxis.scale(_this._y(d)); })
+            .attr('y', function (d, i) { return _this._yAxis.scale(_this.y()(d)); })
             .attr('width', secondaryScale.bandwidth())
-            .attr('height', function (d, i) { return _this._plotHeight - _this._yAxis.scale(_this._y(d)); })
+            .attr('height', function (d, i) { return _this.height() - _this._yAxis.scale(_this.y()(d)); })
             .attr('transform', function (d, i) { return "translate(" + secondaryScale(_this._groupBy(d)) + "," + 0 + ")"; })
             .style('fill', function (d, i) { return _this._colorScale(i); });
         this._legend.update(secondaryScale.domain());
     };
     return MultiCategoricalChart;
-}());
-
-//# sourceMappingURL=MultiCategoricalChart.js.map
+}(ChartBase));
 
 //# sourceMappingURL=Charts.js.map
 
