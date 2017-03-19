@@ -83,7 +83,11 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
             .style('fill', d => this._color(d));
         merged.select('text')
             .transition()
-            .attr('x', (d, i) => this._xScale(xFunction(d, i)) + (this._xScale(xFunction(d, i)) < 30 ? 25 : -5))
+            .style('text-anchor', (d, i) => this._xScale(xFunction(d, i)) < 30 ? 'start' : 'end')
+            .attr('x', (d, i) => {
+                let initial = this._xScale(xFunction(d, i));
+                return initial < 30 ? initial+5 : initial-5;
+            })
             .text((d, i) => this._format ? this._format(xFunction(d, i)) : xFunction(d, i));
     }
 }

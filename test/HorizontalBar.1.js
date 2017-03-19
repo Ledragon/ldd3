@@ -1,12 +1,12 @@
 (function () {
     'use strict';
-    var test = new ldd3.HorizontalBarChart('#chart2', 800, 600)
+    var test = new ldd3.HorizontalBarChart('#chart2', 300, 600)
         .x(d => d.price)
         .y(d => d.country)
         .title('Potato selling price (€/100kg)')
         .color(() => 'red');
     var byYear;
-     let slider = new ldd3.Slider('#slider', 800, 60)
+     let slider = new ldd3.Slider('#slider', 400, 60)
         .on('click', (d, i) => {
             test.update(byYear[i].values.sort((a, b) => b.price - a.price));
         });

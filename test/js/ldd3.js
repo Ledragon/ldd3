@@ -413,13 +413,15 @@ var HorizontalBarChart = (function (_super) {
             .style('fill', function (d) { return _this._color(d); });
         merged.select('text')
             .transition()
-            .attr('x', function (d, i) { return _this._xScale(xFunction(d, i)) + (_this._xScale(xFunction(d, i)) < 30 ? 25 : -5); })
+            .style('text-anchor', function (d, i) { return _this._xScale(xFunction(d, i)) < 30 ? 'start' : 'end'; })
+            .attr('x', function (d, i) {
+            var initial = _this._xScale(xFunction(d, i));
+            return initial < 30 ? initial + 5 : initial - 5;
+        })
             .text(function (d, i) { return _this._format ? _this._format(xFunction(d, i)) : xFunction(d, i); });
     };
     return HorizontalBarChart;
 }(ChartBase));
-
-//# sourceMappingURL=HorizontalBarChart.js.map
 
 var __extends$1 = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
@@ -702,6 +704,8 @@ var TimeLinearChart = (function (_super) {
     };
     return TimeLinearChart;
 }(ChartBase));
+
+//# sourceMappingURL=TimeLinearChart.js.map
 
 var __extends$4 = (undefined && undefined.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||

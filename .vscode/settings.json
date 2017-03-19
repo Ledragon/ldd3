@@ -10,6 +10,8 @@
         "src/**/*.d.ts": true,
         "index.js": true,
         "index.js.map": true,
-        "index.d.ts": true
+        "index.d.ts": true,
+        "node_modules": true,
+        "docs": true
     }
 }
