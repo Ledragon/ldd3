@@ -1,7 +1,5 @@
 import * as d3 from '../d3-bundle';
 
-import { title } from '../title';
-import * as factory from '../plotFactory';
 import { LeftCategoricalAxis } from '../Axes';
 import { ChartBase } from './ChartBase';
 
@@ -53,8 +51,8 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
         let xFunction = this.x();
         let yFunction = this.y();
 
-        this._yAxis.domain(data.map(yFunction));
         this._xScale.domain([0, d3.max(data, xFunction)]);
+        this._yAxis.domain(data.map(yFunction));
 
         var dataBound = this._seriesGroup.selectAll('.series')
             .data(data);
@@ -85,6 +83,5 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
             .transition()
             .attr('x', (d, i) => this._xScale(xFunction(d, i)) + (this._xScale(xFunction(d, i)) < 30 ? 25 : -5))
             .text((d, i) => this._format ? this._format(xFunction(d, i)) : xFunction(d, i));
-
     }
 }

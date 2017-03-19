@@ -386,8 +386,8 @@ var HorizontalBarChart = (function (_super) {
         var _this = this;
         var xFunction = this.x();
         var yFunction = this.y();
-        this._yAxis.domain(data.map(yFunction));
         this._xScale.domain([0, d3.max(data, xFunction)]);
+        this._yAxis.domain(data.map(yFunction));
         var dataBound = this._seriesGroup.selectAll('.series')
             .data(data);
         dataBound
