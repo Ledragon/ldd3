@@ -419,6 +419,8 @@ var HorizontalBarChart = (function (_super) {
     return HorizontalBarChart;
 }(ChartBase));
 
+//# sourceMappingURL=HorizontalBarChart.js.map
+
 var LinearLinearChart = (function () {
     function LinearLinearChart(containerId, _width, _height) {
         this._width = _width;

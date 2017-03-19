@@ -10,7 +10,9 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
     private _color: (d: T) => string;
     private _format: (d: number) => string;
 
-    constructor(selector: string, width: number, height: number) {
+    constructor(selector: string, width: number, height: number);
+    constructor(selector: d3.BaseType, width: number, height: number);
+    constructor(selector: string | d3.BaseType, width: number, height: number) {
         super(selector, width, height, {
             top: 60,
             bottom: 30,
