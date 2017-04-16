@@ -24,7 +24,7 @@ export class HorizontalBarChart<T> extends ChartBase<T, number, string>{
         let plotHeight = this.height();
         let plotWidth = this.width();
 
-        this._yAxis = new LeftCategoricalAxis(plotGroup, plotWidth, plotHeight)
+        this._yAxis = new LeftCategoricalAxis<T>(plotGroup, plotWidth, plotHeight)
             .padding(0.5);
         this._xScale = d3.scaleLinear<number, number>()
             .range([0, plotWidth]);
