@@ -1,3 +1,6 @@
+#0.4.0
+* Added spider chart
+
 # 0.3.1
 * Labels position in horizontal bar chart improved
 

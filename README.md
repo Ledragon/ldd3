@@ -46,6 +46,11 @@ A chart with categories on the x-axis and a linear y-axis.
 
 ![TimeLinearChart](images/TimeLinearChart.png)
 
+#### SpiderChart
+Spider chart
+
+![SpiderChart](images/SpiderChart.png)
+
 ## Usage
 
 I will try to motivate myself to publish some bl.ocks demonstrating how to use these charts. Check [this repository](https://github.com/Ledragon/MakeOverMonday2017) for examples in the meanwhile.
