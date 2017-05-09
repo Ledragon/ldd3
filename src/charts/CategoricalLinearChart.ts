@@ -37,7 +37,7 @@ export class CategoricalLinearChart<T> extends ChartBase<T, string, number> {
             .x((d, i) => this._xAxis.scale(this.x()(d, i)) + this._xAxis.bandWidth() / 2)
             .y((d, i) => this._yAxis.scale(this.y()(d, i)));
 
-        var legendWidth = 90;
+        var legendWidth = 150;
         var legendContainer = this.parent()
             .append('g')
             .attr('transform', (d, i) => `translate(${width},${height / 2})`);

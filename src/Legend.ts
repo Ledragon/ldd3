@@ -49,7 +49,7 @@ export class Legend<T> {
             .text((d, i) => this._label(d, i));
         var legendHeight = data.length * this._itemHeight+10;
         this._legend
-            .attr('transform', (d, i) => `translate(${-this._legendWidth},${-legendHeight})`);
+            .attr('transform', (d, i) => `translate(${-this._legendWidth},${-legendHeight+50})`);
         this._legend.select('rect.legend-rect')
             .attr('width', this._legendWidth-10)
             .attr('height', legendHeight);
