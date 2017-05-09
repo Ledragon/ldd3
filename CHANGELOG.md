@@ -1,3 +1,6 @@
+#0.4.1
+* Curve and color options for CategoricalLinearChart
+
 #0.4.0
 * Added spider chart
 
