@@ -14,6 +14,7 @@ export class CategoricalLinearChart<T> extends ChartBase<T, string, number> {
     private _lineGenerator: d3.Line<T>;
     private _groupBy: (d: T) => string;
     private _legend: Legend<any>;
+    private _color = (d: T, i: number) => d3.schemeCategory10[i];
 
     constructor(selector: string, width: number, height: number);
     constructor(selector: d3.BaseType, width: number, height: number);
@@ -42,13 +43,30 @@ export class CategoricalLinearChart<T> extends ChartBase<T, string, number> {
             .attr('transform', (d, i) => `translate(${width},${height / 2})`);
         this._legend = new Legend<any>(legendContainer, width, plotHeight)
             .label(d => d.key)
-            .color((d, i) => d3.schemeCategory10[i]);
+            .color(this._color);
+    }
+
+    color(value: (d: any, i: number) => string): this {
+        this._color = value;
+        return this;
     }
 
     groupBy(value: (d: T) => string): this {
         if (arguments.length) {
             this._groupBy = value;
         }
+        return this;
+    }
+
+    curve(value: string): this {
+        if (value === 'step') {
+            this._lineGenerator
+                .curve(d3.curveStep);
+        } else {
+            this._lineGenerator
+                .curve(d3.curveLinear);
+        }
+
         return this;
     }
 
@@ -69,7 +87,7 @@ export class CategoricalLinearChart<T> extends ChartBase<T, string, number> {
             .classed('year-series', true);
         enterSelection.append('path')
             .attr('d', (d: any) => this._lineGenerator(d.values))
-            .style('stroke', (d, i) => d3.schemeCategory10[i]);
+            .style('stroke', (d: any, i) => this._color(d, i));
         this._legend.update(grouped);
     }
 }

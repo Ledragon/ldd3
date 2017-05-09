@@ -11,5 +11,5 @@ export {
     scaleOrdinal, ScaleOrdinal
 } from 'd3-scale';
 export { select, Selection, BaseType } from 'd3-selection';
-export { line, Line, curveStep, curveLinearClosed } from 'd3-shape';
+export { line, Line, curveStep, curveLinearClosed, curveLinear } from 'd3-shape';
 export { timeFormat } from 'd3-time-format';
